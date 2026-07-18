@@ -1,7 +1,13 @@
-export default function Home() {
+import type { Metadata } from 'next';
+import { PagePlaceholder } from '@/components/ui/PagePlaceholder';
+
+export const metadata: Metadata = { title: 'Home' };
+
+export default function HomePage() {
   return (
-    <div className='bg-steel-50 min-h-[calc(100vh-180px)] flex flex-col justify-center'>
-      Index Page
-    </div>
+    <PagePlaceholder
+      title='Home'
+      description='Hero section, product category highlights, certification strip (ATEX/ISO/IECEx), latest news preview — coming in Phase 2.'
+    />
   );
 }

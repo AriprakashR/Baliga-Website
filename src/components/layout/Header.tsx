@@ -34,7 +34,6 @@ export function Header() {
           <CertBadge code='ISO 9001:2015' />
           <CertBadge code='ATEX' />
           <CertBadge code='IECEx' />
-          la
         </div>
       </div>
 
