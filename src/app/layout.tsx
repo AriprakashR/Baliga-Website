@@ -32,7 +32,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className={`${plexSans.variable} ${plexMono.variable}`}>
-      <body className='flex min-h-screen flex-col bg-steel-50 font-body text-ink antialiased'>
+      <body
+        suppressHydrationWarning
+        className='flex min-h-screen flex-col bg-steel-50 font-body text-ink antialiased'
+      >
         <Header />
         <main className='flex-1'>{children}</main>
         <Footer />
