@@ -31,7 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' className={`${plexSans.variable} ${plexMono.variable}`}>
+    <html
+      lang='en'
+      data-scroll-behavior='smooth'
+      className={`${plexSans.variable} ${plexMono.variable}`}
+    >
       <body
         suppressHydrationWarning
         className='flex min-h-screen flex-col bg-steel-50 font-body text-ink antialiased'
