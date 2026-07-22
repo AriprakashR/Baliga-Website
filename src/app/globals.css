@@ -1,20 +1,107 @@
-/* app/globals.css */
 @import 'tailwindcss';
 
 @theme {
-  --color-navy-50: #f4f6fb;
-  --color-navy-100: #e6ebf5;
-  --color-navy-200: #c3d0e8;
-  --color-navy-400: #6d84b8;
-  --color-navy-600: #2a4d8f;
-  --color-navy-700: #1c3a6e;
-  --color-navy-800: #122a52;
-  --color-navy-900: #0a1a35;
-  --color-navy-950: #050d1f;
+  /* ---- Color: Navy (primary brand) ------------------------------------ */
+  --color-navy-950: #071429;
+  --color-navy-900: #0a1b3d; /* header, hero, footer base */
+  --color-navy-800: #122a52; /* section alternation */
+  --color-navy-700: #1b3a6b; /* borders / dividers on navy */
+  --color-navy-600: #2a4e88; /* hover states on navy */
 
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  /* ---- Color: Amber (safety accent, used sparingly) -------------------- */
+  --color-amber-600: #d6900f; /* hover / pressed */
+  --color-amber-500: #f2a81d; /* primary accent — CTAs, cert marks */
+  --color-amber-100: #fdecc8; /* soft tint for badges on light bg */
+
+  /* ---- Color: Neutrals --------------------------------------------------*/
+  --color-ink: #101828; /* body text on light backgrounds */
+  --color-steel: #5b6b82; /* secondary / muted text */
+  --color-mist: #f5f7fa; /* light section background */
+  --color-line: #e2e6ed; /* hairline borders on light bg */
+
+  /* ---- Type -------------------------------------------------------------
+     Display: condensed industrial caps — evokes stamped equipment lettering.
+     Body: humanist sans, built for long technical copy.
+     Mono: for certification codes, ratings, and stat figures (nameplate feel).
+  */
+  --font-display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  --font-body: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* ---- Radii — small and precise, not soft/bubbly ---------------------- */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* ---- Layout ------------------------------------------------------------ */
+  --container-page: 1280px;
+}
+
+/* ---- Base element defaults -------------------------------------------- */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-white text-navy-900 font-sans antialiased;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+/* Respect reduced-motion preference site-wide */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ==========================================================================
+   SIGNATURE ELEMENT — "Nameplate"
+   Every flameproof enclosure Baliga ships carries a stamped rating plate
+   (Ex d IIC T6 Gb, cert numbers, IP ratings). This component reuses that
+   visual language — a bordered mono-font tag with corner rivets — for
+   certification badges, stat callouts, and category tags across the site.
+   ========================================================================== */
+.nameplate {
+  @apply inline-flex items-center gap-2 border border-navy-700/20 bg-white px-4 py-2 relative;
+  font-family: var(--font-mono);
+  border-radius: var(--radius-sm);
+}
+
+.nameplate::before,
+.nameplate::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.35;
+  transform: translateY(-50%);
+}
+
+.nameplate::before {
+  left: 6px;
+}
+
+.nameplate::after {
+  right: 6px;
+}
+
+.nameplate--dark {
+  @apply bg-navy-800 border-white/15 text-white;
 }

@@ -1,17 +1,17 @@
 import Link from 'next/link';
 
-export default function CtaBanner() {
+export default function CTABanner() {
   return (
-    <section className='bg-navy-950 text-white'>
-      <div className='mx-auto max-w-7xl px-6 py-16 flex flex-col md:flex-row items-center justify-between gap-6'>
-        <h2 className='text-2xl md:text-3xl font-semibold max-w-xl'>
-          Need explosion-proof equipment for your site?
+    <section className='bg-navy-950'>
+      <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-8'>
+        <h2 className='text-3xl md:text-4xl font-bold text-white max-w-xl'>
+          Need equipment certified for Zone 1 or Zone 2 hazardous areas?
         </h2>
         <Link
           href='/contact'
-          className='bg-white text-navy-900 px-6 py-3 rounded-md font-medium hover:bg-navy-50 transition whitespace-nowrap'
+          className='font-display text-sm tracking-wide bg-amber-500 hover:bg-amber-600 text-navy-950 px-7 py-3.5 rounded-sm transition-colors whitespace-nowrap'
         >
-          Contact Our Team
+          Talk to Our Engineers
         </Link>
       </div>
     </section>

@@ -1,94 +1,83 @@
 import Link from 'next/link';
 
-const quickLinks = [
-  { name: 'About Us', href: '/about' },
-  { name: 'Certifications', href: '/certifications' },
-  { name: 'Industries', href: '/industries' },
-  { name: 'Events', href: '/events' },
-  { name: 'FAQ', href: '/faq' },
-];
-
-const productLinks = [
-  { name: 'Lighting', href: '/products/lighting' },
-  { name: 'Communication Systems', href: '/products/communication' },
-  { name: 'Panels', href: '/products/panels' },
-  { name: 'Flow Measuring Equipment', href: '/products/flow-measuring' },
+const COLUMNS = [
+  {
+    heading: 'Products',
+    links: [
+      { label: 'Lighting', href: '/products/lighting' },
+      { label: 'Communication Systems', href: '/products/communication' },
+      { label: 'Panels', href: '/products/panels' },
+      { label: 'Flow Measuring', href: '/products/flow-measuring' },
+    ],
+  },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'About Us', href: '/about' },
+      { label: 'Certifications', href: '/certifications' },
+      { label: 'Industries Served', href: '/industries' },
+      { label: 'Clients', href: '/clients' },
+    ],
+  },
+  {
+    heading: 'Resources',
+    links: [
+      { label: 'Events & Exhibitions', href: '/events' },
+      { label: 'FAQ', href: '/faq' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
 ];
 
 export default function Footer() {
   return (
-    <footer className='bg-navy-950 text-navy-100'>
-      <div className='mx-auto max-w-7xl px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10'>
+    <footer className='bg-navy-900 border-t border-white/10'>
+      <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10'>
         <div>
-          <p className='text-xl font-bold text-white'>Baliga Lighting</p>
-          <p className='mt-4 text-sm text-navy-300 max-w-xs'>
-            Manufacturing explosion-proof and flameproof electrical equipment
-            for hazardous industrial environments since 1960.
+          <span className='font-display text-2xl font-bold text-white tracking-wide'>
+            BALIGA
+          </span>
+          <p className='mt-4 font-body normal-case text-sm text-white/60 leading-relaxed max-w-xs'>
+            Explosion-proof and flameproof electrical equipment for hazardous
+            industrial environments, engineered in India since 1960.
           </p>
-          <div className='mt-6 flex gap-3 text-xs font-medium'>
-            <span className='border border-navy-700 rounded px-2 py-1'>
+          <div className='mt-6 flex gap-3'>
+            <span className='nameplate nameplate--dark text-amber-500 text-xs'>
               ATEX
             </span>
-            <span className='border border-navy-700 rounded px-2 py-1'>
+            <span className='nameplate nameplate--dark text-amber-500 text-xs'>
               IECEx
             </span>
           </div>
         </div>
 
-        <div>
-          <p className='text-sm font-semibold text-white uppercase tracking-wide'>
-            Company
-          </p>
-          <ul className='mt-4 space-y-3'>
-            {quickLinks.map(l => (
-              <li key={l.name}>
-                <Link
-                  href={l.href}
-                  className='text-sm text-navy-300 hover:text-white transition'
-                >
-                  {l.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <p className='text-sm font-semibold text-white uppercase tracking-wide'>
-            Products
-          </p>
-          <ul className='mt-4 space-y-3'>
-            {productLinks.map(l => (
-              <li key={l.name}>
-                <Link
-                  href={l.href}
-                  className='text-sm text-navy-300 hover:text-white transition'
-                >
-                  {l.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <p className='text-sm font-semibold text-white uppercase tracking-wide'>
-            Contact
-          </p>
-          <ul className='mt-4 space-y-3 text-sm text-navy-300'>
-            <li>[Company Address]</li>
-            <li>[Phone Number]</li>
-            <li>[Email Address]</li>
-          </ul>
-        </div>
+        {COLUMNS.map(col => (
+          <div key={col.heading}>
+            <h3 className='font-display text-xs tracking-widest text-white/50'>
+              {col.heading.toUpperCase()}
+            </h3>
+            <ul className='mt-4 space-y-3'>
+              {col.links.map(link => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className='font-body normal-case text-sm text-white/70 hover:text-white transition-colors'
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
 
-      <div className='border-t border-navy-800'>
-        <div className='mx-auto max-w-7xl px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-navy-400'>
-          <p>
+      <div className='border-t border-white/10'>
+        <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-6 flex flex-col sm:flex-row justify-between gap-2 font-body normal-case text-xs text-white/40'>
+          <span>
             © {new Date().getFullYear()} Baliga Lighting. All rights reserved.
-          </p>
-          <p>Built with care for hazardous environments.</p>
+          </span>
+          <span>Manufactured in India · Certified for global deployment</span>
         </div>
       </div>
     </footer>

@@ -1,19 +1,27 @@
+import Header from '@/components/layout/Header';
 import Hero from '@/components/home/Hero';
-import TrustBar from '@/components/home/TrustBar';
-import IndustriesPreview from '@/components/home/IndustriesPreview';
+import CertificationsBar from '@/components/home/CertificationsBar';
+import AboutLegacy from '@/components/home/AboutLegacy';
+import ProductCategories from '@/components/home/ProductCategories';
+import IndustriesServed from '@/components/home/IndustriesServed';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
-import ProductCategoriesPreview from '@/components/home/ProductCategoriesPreview';
-import CtaBanner from '@/components/home/CtaBanner';
+import CTABanner from '@/components/home/CTABanner';
+import Footer from '@/components/layout/Footer';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
-      <Hero />
-      <TrustBar />
-      <IndustriesPreview />
-      <WhyChooseUs />
-      <ProductCategoriesPreview />
-      <CtaBanner />
+      <Header />
+      <main>
+        <Hero />
+        <CertificationsBar />
+        <AboutLegacy />
+        <ProductCategories />
+        <IndustriesServed />
+        <WhyChooseUs />
+        <CTABanner />
+      </main>
+      <Footer />
     </>
   );
 }

@@ -3,85 +3,103 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Products', href: '/products' },
-  { name: 'Industries', href: '/industries' },
-  { name: 'Certifications', href: '/certifications' },
-  { name: 'Contact', href: '/contact' },
+const NAV_LINKS = [
+  { label: 'Products', href: '/products' },
+  { label: 'Industries Served', href: '/industries' },
+  { label: 'Certifications', href: '/certifications' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className='sticky top-0 z-50 bg-white border-b border-navy-100'>
-      <div className='mx-auto max-w-7xl px-6 flex items-center justify-between h-20'>
-        <Link href='/' className='text-xl font-bold text-navy-900'>
-          Baliga <span className='text-navy-600 font-normal'>Lighting</span>
+    <header className='fixed top-0 inset-x-0 z-50 bg-navy-900/95 backdrop-blur border-b border-white/10'>
+      <div className='max-w-(--container-page) mx-auto px-6 md:px-10 h-20 flex items-center justify-between'>
+        <Link
+          href='/'
+          className='flex items-center gap-3'
+          onClick={() => setOpen(false)}
+        >
+          <span className='font-display text-2xl font-bold text-white tracking-wide'>
+            BALIGA
+          </span>
+          <span className='hidden sm:inline-block font-mono text-[11px] text-amber-500 border border-amber-500/40 rounded-sm px-2 py-0.5 tracking-widest'>
+            EST. 1960
+          </span>
         </Link>
 
-        <nav className='hidden md:flex items-center gap-8'>
-          {navLinks.map(link => (
+        <nav className='hidden lg:flex items-center gap-8'>
+          {NAV_LINKS.map(link => (
             <Link
-              key={link.name}
+              key={link.href}
               href={link.href}
-              className='text-sm font-medium text-navy-700 hover:text-navy-900 transition'
+              className='font-display text-sm tracking-wide text-white/80 hover:text-white transition-colors'
             >
-              {link.name}
+              {link.label}
             </Link>
           ))}
         </nav>
 
-        <Link
-          href='/contact'
-          className='hidden md:inline-block bg-navy-900 text-white px-5 py-2.5 rounded-md text-sm font-medium hover:bg-navy-800 transition'
-        >
-          Get a Quote
-        </Link>
-
-        <button
-          onClick={() => setOpen(!open)}
-          className='md:hidden text-navy-900'
-          aria-label='Toggle menu'
-        >
-          <svg
-            width='24'
-            height='24'
-            viewBox='0 0 24 24'
-            fill='none'
-            stroke='currentColor'
-            strokeWidth='2'
-          >
-            {open ? (
-              <path d='M6 6l12 12M6 18L18 6' />
-            ) : (
-              <path d='M4 6h16M4 12h16M4 18h16' />
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {open && (
-        <div className='md:hidden border-t border-navy-100 bg-white px-6 py-4 space-y-4'>
-          {navLinks.map(link => (
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className='block text-navy-700 font-medium'
-            >
-              {link.name}
-            </Link>
-          ))}
+        <div className='flex items-center gap-4'>
           <Link
             href='/contact'
-            onClick={() => setOpen(false)}
-            className='block bg-navy-900 text-white text-center px-5 py-2.5 rounded-md font-medium'
+            className='hidden sm:inline-block font-display text-sm tracking-wide bg-amber-500 hover:bg-amber-600 text-navy-950 px-5 py-2.5 rounded-sm transition-colors'
           >
             Get a Quote
           </Link>
+
+          <button
+            type='button'
+            onClick={() => setOpen(v => !v)}
+            aria-expanded={open}
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            className='lg:hidden text-white p-2 -mr-2'
+          >
+            <svg viewBox='0 0 24 24' fill='none' className='w-6 h-6'>
+              {open ? (
+                <path
+                  d='M6 6l12 12M18 6L6 18'
+                  stroke='currentColor'
+                  strokeWidth='1.8'
+                  strokeLinecap='round'
+                />
+              ) : (
+                <path
+                  d='M4 7h16M4 12h16M4 17h16'
+                  stroke='currentColor'
+                  strokeWidth='1.8'
+                  strokeLinecap='round'
+                />
+              )}
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu panel — shown below the lg breakpoint when toggled */}
+      {open && (
+        <div className='lg:hidden border-t border-white/10 bg-navy-900'>
+          <nav className='max-w-(--container-page) mx-auto px-6 py-6 flex flex-col gap-1'>
+            {NAV_LINKS.map(link => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className='font-display text-base tracking-wide text-white/85 hover:text-white py-3 border-b border-white/5'
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href='/contact'
+              onClick={() => setOpen(false)}
+              className='mt-4 font-display text-sm tracking-wide text-center bg-amber-500 hover:bg-amber-600 text-navy-950 px-5 py-3 rounded-sm transition-colors'
+            >
+              Get a Quote
+            </Link>
+          </nav>
         </div>
       )}
     </header>
