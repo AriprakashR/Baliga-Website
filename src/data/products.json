@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "name": "Flameproof LED Luminaire",
+    "slug": "flameproof-led-luminaire",
+    "category": "luminaires",
+    "image": "/images/products/luminaire.jpg",
+    "featured": true,
+    "shortDescription": "High-efficiency Ex d LED light fitting for Zone 1 & 2 hazardous locations."
+  },
+  {
+    "id": "2",
+    "name": "Explosion-Proof Junction Box",
+    "slug": "explosion-proof-junction-box",
+    "category": "junction-boxes",
+    "image": "/images/products/junction-box.jpg",
+    "featured": true,
+    "shortDescription": "Cast aluminium alloy enclosure engineered for extreme ambient temperatures."
+  }
+]

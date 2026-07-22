@@ -1,34 +1,33 @@
 @import 'tailwindcss';
 
+/*
+  Tailwind v4 config lives here instead of tailwind.config.ts.
+  Every --color-* below auto-generates utilities: bg-navy-900, text-navy-600,
+  border-navy-200, etc. Adjust the hex values to match the old site's exact
+  navy if these are off — they're a close professional-navy approximation.
+*/
 @theme {
-  /* Colors */
-  --color-navy: #0e2a47;
-  --color-navy-dark: #081a2e;
-  --color-navy-light: #1d3f63;
+  --color-navy-950: #071220;
+  --color-navy-900: #0b1d33;
+  --color-navy-800: #12294a;
+  --color-navy-700: #1b3a63;
+  --color-navy-600: #27507f;
+  --color-navy-500: #35659b;
+  --color-navy-400: #6489ab;
+  --color-navy-200: #b9cbdd;
+  --color-navy-100: #dfe9f5;
+  --color-navy-50: #f2f6fb;
 
-  --color-hazard-orange: #f2661d;
-  --color-hazard-yellow: #ffc72c;
+  /* muted warm accent for CTAs — swap for the client's existing accent if they have one */
+  --color-accent-500: #b9852f;
+  --color-accent-600: #966a24;
 
-  --color-steel-50: #f7f8fa;
-  --color-steel-200: #e4e7eb;
-  --color-steel-500: #71717a;
-
-  --color-ink: #10151b;
-
-  /* Typography / Fonts */
-  --font-display: var(--font-plex-sans), sans-serif;
-  --font-body: var(--font-plex-sans), sans-serif;
-  --font-mono: var(--font-plex-mono), monospace;
-}
-
-:root {
-  --background: var(--color-steel-50);
-  --foreground: var(--color-ink);
+  --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--color-navy-950);
+  background: #ffffff;
   font-family: var(--font-body);
-  overflow-x: hidden;
 }
