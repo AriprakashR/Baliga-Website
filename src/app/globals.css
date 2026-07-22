@@ -1,33 +1,20 @@
+/* app/globals.css */
 @import 'tailwindcss';
 
-/*
-  Tailwind v4 config lives here instead of tailwind.config.ts.
-  Every --color-* below auto-generates utilities: bg-navy-900, text-navy-600,
-  border-navy-200, etc. Adjust the hex values to match the old site's exact
-  navy if these are off — they're a close professional-navy approximation.
-*/
 @theme {
-  --color-navy-950: #071220;
-  --color-navy-900: #0b1d33;
-  --color-navy-800: #12294a;
-  --color-navy-700: #1b3a63;
-  --color-navy-600: #27507f;
-  --color-navy-500: #35659b;
-  --color-navy-400: #6489ab;
-  --color-navy-200: #b9cbdd;
-  --color-navy-100: #dfe9f5;
-  --color-navy-50: #f2f6fb;
+  --color-navy-50: #f4f6fb;
+  --color-navy-100: #e6ebf5;
+  --color-navy-200: #c3d0e8;
+  --color-navy-400: #6d84b8;
+  --color-navy-600: #2a4d8f;
+  --color-navy-700: #1c3a6e;
+  --color-navy-800: #122a52;
+  --color-navy-900: #0a1a35;
+  --color-navy-950: #050d1f;
 
-  /* muted warm accent for CTAs — swap for the client's existing accent if they have one */
-  --color-accent-500: #b9852f;
-  --color-accent-600: #966a24;
-
-  --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  color: var(--color-navy-950);
-  background: #ffffff;
-  font-family: var(--font-body);
+  @apply bg-white text-navy-900 font-sans antialiased;
 }

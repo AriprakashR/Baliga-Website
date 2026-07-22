@@ -1,45 +1,31 @@
-import Link from 'next/link';
-// Swap this placeholder panel for the existing HeroIllustration component
-// if it already renders something suitable:
-// import HeroIllustration from "./HeroIllustration";
-
 export default function Hero() {
   return (
-    <section className='border-b border-navy-100'>
-      <div className='mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2 md:py-24'>
-        <div>
-          <span className='inline-block rounded-full bg-navy-50 px-4 py-1 text-xs font-medium text-navy-700'>
-            ISO certified manufacturer
-          </span>
-
-          <h1 className='mt-5 text-3xl font-medium leading-tight text-navy-950 md:text-4xl'>
-            Manufacturing you can build on
-          </h1>
-
-          <p className='mt-4 max-w-md text-base leading-relaxed text-navy-600'>
-            From design to deployment, our product range powers critical
-            infrastructure across power, process, and industrial sectors.
-          </p>
-
-          <div className='mt-7 flex flex-wrap gap-3'>
-            <Link
-              href='/products'
-              className='rounded-lg bg-navy-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-navy-800'
-            >
-              Browse catalog
-            </Link>
-            <Link
-              href='/industries'
-              className='rounded-lg border border-navy-200 px-6 py-3 text-sm font-medium text-navy-800 transition hover:bg-navy-50'
-            >
-              Our industries
-            </Link>
-          </div>
-        </div>
-
-        {/* Visual panel — replace with <HeroIllustration /> or a product photo */}
-        <div className='flex h-64 items-center justify-center rounded-2xl bg-navy-50 md:h-80'>
-          <span className='text-sm text-navy-400'>Hero visual placeholder</span>
+    <section className='bg-navy-900 text-white'>
+      <div className='mx-auto max-w-7xl px-6 py-28 md:py-36'>
+        <p className='text-sm tracking-widest uppercase text-navy-200 mb-4'>
+          Since 1960 · ATEX & IECEx Certified
+        </p>
+        <h1 className='text-4xl md:text-6xl font-bold leading-tight max-w-3xl'>
+          Explosion-Proof Electrical Equipment for Hazardous Environments
+        </h1>
+        <p className='mt-6 text-lg text-navy-100 max-w-xl'>
+          Baliga Lighting engineers flameproof lighting, communication systems,
+          panels and flow measuring equipment trusted across hazardous
+          industrial sites worldwide.
+        </p>
+        <div className='mt-10 flex gap-4'>
+          <a
+            href='/products'
+            className='bg-white text-navy-900 px-6 py-3 rounded-md font-medium hover:bg-navy-50 transition'
+          >
+            Explore Products
+          </a>
+          <a
+            href='/contact'
+            className='border border-white/30 px-6 py-3 rounded-md font-medium hover:bg-white/10 transition'
+          >
+            Talk to an Expert
+          </a>
         </div>
       </div>
     </section>

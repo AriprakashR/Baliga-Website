@@ -1,92 +1,88 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
+import { useState } from 'react';
+import Link from 'next/link';
 
-const NAV_LINKS = [
-  { label: "Products", href: "/products" },
-  { label: "Industries", href: "/industries" },
-  { label: "Certifications", href: "/certifications" },
-  { label: "Clients", href: "/clients" },
-  { label: "Events", href: "/events" },
-  { label: "About", href: "/about" },
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Products', href: '/products' },
+  { name: 'Industries', href: '/industries' },
+  { name: 'Certifications', href: '/certifications' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-navy-100 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-lg font-medium text-navy-900">
-          Baliga
+    <header className='sticky top-0 z-50 bg-white border-b border-navy-100'>
+      <div className='mx-auto max-w-7xl px-6 flex items-center justify-between h-20'>
+        <Link href='/' className='text-xl font-bold text-navy-900'>
+          Baliga <span className='text-navy-600 font-normal'>Lighting</span>
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 md:flex">
-          {NAV_LINKS.map((link) => (
+        <nav className='hidden md:flex items-center gap-8'>
+          {navLinks.map(link => (
             <Link
-              key={link.href}
+              key={link.name}
               href={link.href}
-              className="text-sm text-navy-700 transition hover:text-navy-950"
+              className='text-sm font-medium text-navy-700 hover:text-navy-900 transition'
             >
-              {link.label}
+              {link.name}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <Link
-            href="/contact"
-            className="rounded-lg bg-navy-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-navy-800"
-          >
-            Get a quote
-          </Link>
-        </div>
-
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-navy-100 text-navy-900 md:hidden"
+        <Link
+          href='/contact'
+          className='hidden md:inline-block bg-navy-900 text-white px-5 py-2.5 rounded-md text-sm font-medium hover:bg-navy-800 transition'
         >
-          {open ? (
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M1 1l16 16M17 1L1 17" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-            </svg>
-          ) : (
-            <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
-              <path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-            </svg>
-          )}
+          Get a Quote
+        </Link>
+
+        <button
+          onClick={() => setOpen(!open)}
+          className='md:hidden text-navy-900'
+          aria-label='Toggle menu'
+        >
+          <svg
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            strokeWidth='2'
+          >
+            {open ? (
+              <path d='M6 6l12 12M6 18L18 6' />
+            ) : (
+              <path d='M4 6h16M4 12h16M4 18h16' />
+            )}
+          </svg>
         </button>
       </div>
 
-      {/* Mobile nav */}
       {open && (
-        <nav className="border-t border-navy-100 px-6 py-4 md:hidden">
-          <div className="flex flex-col gap-4">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="text-sm text-navy-700"
-              >
-                {link.label}
-              </Link>
-            ))}
+        <div className='md:hidden border-t border-navy-100 bg-white px-6 py-4 space-y-4'>
+          {navLinks.map(link => (
             <Link
-              href="/contact"
+              key={link.name}
+              href={link.href}
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-lg bg-navy-900 px-5 py-2.5 text-center text-sm font-medium text-white"
+              className='block text-navy-700 font-medium'
             >
-              Get a quote
+              {link.name}
             </Link>
-          </div>
-        </nav>
+          ))}
+          <Link
+            href='/contact'
+            onClick={() => setOpen(false)}
+            className='block bg-navy-900 text-white text-center px-5 py-2.5 rounded-md font-medium'
+          >
+            Get a Quote
+          </Link>
+        </div>
       )}
     </header>
   );
