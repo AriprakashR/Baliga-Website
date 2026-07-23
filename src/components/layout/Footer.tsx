@@ -41,12 +41,22 @@ export default function Footer() {
             Explosion-proof and flameproof electrical equipment for hazardous
             industrial environments, engineered in India since 1960.
           </p>
-          <div className='mt-6 flex gap-3'>
+          <p className='mt-4 font-body normal-case text-sm text-white/60 leading-relaxed max-w-xs'>
+            1/382, Baliga Road, Off Medavakkam Main Road, Kovilambakkam,
+            Chennai-600129, India
+          </p>
+          <p className='mt-2 font-body normal-case text-sm text-white/60 leading-relaxed'>
+            +91-44-2238-0990 · baligamf@baliga.com
+          </p>
+          <div className='mt-6 flex flex-wrap gap-3'>
             <span className='nameplate nameplate--dark text-amber-500 text-xs'>
               ATEX
             </span>
             <span className='nameplate nameplate--dark text-amber-500 text-xs'>
               IECEx
+            </span>
+            <span className='nameplate nameplate--dark text-amber-500 text-xs'>
+              ISO 9001:2015
             </span>
           </div>
         </div>
@@ -75,7 +85,8 @@ export default function Footer() {
       <div className='border-t border-white/10'>
         <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-6 flex flex-col sm:flex-row justify-between gap-2 font-body normal-case text-xs text-white/40'>
           <span>
-            © {new Date().getFullYear()} Baliga Lighting. All rights reserved.
+            © {new Date().getFullYear()} Baliga Lighting Equipments Private
+            Limited. All rights reserved.
           </span>
           <span>Manufactured in India · Certified for global deployment</span>
         </div>

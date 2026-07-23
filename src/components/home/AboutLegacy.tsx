@@ -1,8 +1,8 @@
 const STATS = [
   { value: '1960', label: 'Founded' },
-  { value: '60+', label: 'Years in hazardous-area engineering' },
+  { value: '65+', label: 'Years in hazardous-area engineering' },
   { value: '4', label: 'Core product lines' },
-  { value: '2', label: 'International certifications held' },
+  { value: '3', label: 'International certifications held' },
 ];
 
 export default function AboutLegacy() {
@@ -33,19 +33,22 @@ export default function AboutLegacy() {
             Six decades of keeping hazardous sites running safely
           </h2>
           <p className='mt-6 font-body normal-case text-steel text-base leading-relaxed'>
-            Since 1960, Baliga Lighting has manufactured explosion-proof and
-            flameproof electrical equipment for India&apos;s most demanding
-            industrial environments — refineries, chemical plants, offshore
-            platforms, and mines where a single spark carries real consequences.
-            Every product is engineered to ATEX and IECEx standards, so the same
-            equipment trusted on Indian sites meets the bar for international
-            ones.
+            Founded in 1960 by Mr. U.N. Baliga in a modest 460 sq. meter
+            factory, Baliga Lighting pioneered the manufacture of
+            explosion-proof lighting equipment in India in 1962 — the beginning
+            of a journey that has made it a benchmark for quality among Indian
+            flameproof manufacturers. Our Chennai facility has since grown to a
+            4,200 sq. meter built-up plant on a 25,000 sq. meter plot, with
+            branch offices across India and in Dubai serving customers globally.
           </p>
           <p className='mt-4 font-body normal-case text-steel text-base leading-relaxed'>
-            Our range spans explosion-proof lighting, communication systems,
-            control and distribution panels, and flow measuring equipment —
-            built to perform in Zone 1 and Zone 2 hazardous areas across the oil
-            &amp; gas, petrochemical, marine, and mining sectors.
+            We are ISO 9001:2015, ATEX, and IECEx certified, with every product
+            subjected to stage-wise inspection against international quality
+            norms. Our equipment is trusted by refineries and EPC majors
+            including Bharat Petroleum, Indian Oil Corporation, Reliance
+            Industries, Technip India, Saipem, and Worley Parsons — across
+            refineries, oil drilling &amp; platforms, petrochemicals,
+            fertilisers &amp; chemicals, pharmaceuticals, and space research.
           </p>
         </div>
       </div>

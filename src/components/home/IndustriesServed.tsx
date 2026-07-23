@@ -1,12 +1,13 @@
 import Link from 'next/link';
 
 const INDUSTRIES = [
-  'Oil & Gas',
-  'Petrochemical',
-  'Mining',
-  'Marine & Offshore',
+  'Refineries',
+  'Oil Drilling & Platforms',
+  'Contracting Companies',
+  'Petrochemicals',
+  'Fertilisers & Chemicals',
   'Pharmaceutical',
-  'Power Generation',
+  'Space Research & Aeronautics',
 ];
 
 export default function IndustriesServed() {

@@ -5,7 +5,7 @@ import AboutLegacy from '@/components/home/AboutLegacy';
 import ProductCategories from '@/components/home/ProductCategories';
 import IndustriesServed from '@/components/home/IndustriesServed';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
-import CTABanner from '@/components/home/CTABanner'; //fixed import
+import CTABanner from '@/components/home/CTABanner';
 import Footer from '@/components/layout/Footer';
 
 export default function HomePage() {

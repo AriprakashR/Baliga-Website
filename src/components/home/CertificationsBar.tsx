@@ -1,6 +1,7 @@
 const CERTIFICATIONS = [
-  { code: 'ATEX', detail: '2014/34/EU' },
-  { code: 'IECEx', detail: 'OD 011' },
+  { code: 'ATEX', detail: 'EEC DIRECTIVE' },
+  { code: 'IECEx', detail: 'GLOBAL EX STANDARD' },
+  { code: 'ISO 9001:2015', detail: 'QUALITY CERTIFIED' },
 ];
 
 export default function CertificationsBar() {

@@ -1,22 +1,22 @@
 import type { Metadata } from 'next';
-import { Big_Shoulders, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
+import { Sora, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
-const display = Big_Shoulders({
+const display = Sora({
   subsets: ['latin'],
   weight: ['600', '700', '800'],
   variable: '--font-display',
   display: 'swap',
 });
 
-const body = IBM_Plex_Sans({
+const body = Inter({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
   variable: '--font-body',
   display: 'swap',
 });
 
-const mono = IBM_Plex_Mono({
+const mono = JetBrains_Mono({
   subsets: ['latin'],
   weight: ['400', '500'],
   variable: '--font-mono',

@@ -1,6 +1,14 @@
 @import 'tailwindcss';
 
 @theme {
+  /* ==========================================================================
+   BALIGA LIGHTING — GLOBAL DESIGN SYSTEM
+   This file is the ONLY place design tokens are defined. Components should
+   never hardcode hex values — they consume the tokens below via Tailwind
+   utilities (bg-navy-900, text-amber-500, font-display, etc.) generated
+   from this @theme block.
+   ========================================================================== */
+
   /* ---- Color: Navy (primary brand) ------------------------------------ */
   --color-navy-950: #071429;
   --color-navy-900: #0a1b3d; /* header, hero, footer base */
@@ -20,13 +28,13 @@
   --color-line: #e2e6ed; /* hairline borders on light bg */
 
   /* ---- Type -------------------------------------------------------------
-     Display: condensed industrial caps — evokes stamped equipment lettering.
-     Body: humanist sans, built for long technical copy.
+     Display: Sora — a clean geometric sans for headlines, normal case.
+     Body: Inter — the modern-standard humanist sans for long-form copy.
      Mono: for certification codes, ratings, and stat figures (nameplate feel).
   */
-  --font-display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
-  --font-body: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-display: 'Sora', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   /* ---- Radii — small and precise, not soft/bubbly ---------------------- */
   --radius-sm: 2px;
@@ -52,13 +60,12 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  line-height: 1.05;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
 }
 
-/* Respect reduced-motion preference site-wide */
 @media (prefers-reduced-motion: reduce) {
+  /* Respect reduced-motion preference site-wide */
   html {
     scroll-behavior: auto;
   }
