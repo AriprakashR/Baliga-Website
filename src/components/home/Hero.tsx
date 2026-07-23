@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { withBasePath } from '@/lib/basePath';
 
 export default function Hero() {
   return (
@@ -8,7 +9,7 @@ export default function Hero() {
           brand palette (grayscale + mix-blend-color duotone) so the source
           photo reads as "Baliga navy" rather than a raw stock photo. */}
       <Image
-        src='/hero/panel-background-1.jpg'
+        src={withBasePath('/hero/panel-background-1.jpg')}
         alt='Hazardous-area industrial refinery site at night'
         fill
         priority

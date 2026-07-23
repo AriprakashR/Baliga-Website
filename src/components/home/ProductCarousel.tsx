@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { withBasePath } from '@/lib/basePath';
 
 const CATEGORIES = [
   {
@@ -91,7 +92,7 @@ function CategoryCard({ category, hidden }: { category: (typeof CATEGORIES)[numb
     >
       <div className='relative aspect-4/3 bg-mist border-b border-line overflow-hidden'>
         <Image
-          src={category.image}
+          src={withBasePath(category.image)}
           alt={`${category.name} product photograph`}
           fill
           sizes='(min-width: 1024px) 384px, (min-width: 640px) 320px, 288px'
