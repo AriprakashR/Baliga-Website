@@ -1,36 +1,26 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
     <section className='relative bg-navy-900 pt-20 overflow-hidden'>
-      {/* Hazard-zone ring motif — echoes the concentric Zone 0/1/2 classification
-          diagrams used to map explosion risk around equipment. Subtle, not literal. */}
-      <svg
+      {/* Background panel image — drop your file at:
+          public/hero/panel-background.jpg (see public/hero/README.md for specs) */}
+      <Image
+        src='/hero/panel-background.jpg'
+        alt='Baliga flameproof panel and control equipment'
+        fill
+        priority
+        className='object-cover object-center'
+      />
+
+      {/* Navy gradient overlay — solid over the text column, fading out toward
+          the right so the panel photo still reads through. Keeps contrast
+          consistent regardless of what the underlying photo looks like. */}
+      <div
         aria-hidden='true'
-        className='pointer-events-none absolute -right-40 top-1/2 -translate-y-1/2 opacity-[0.14] w-160 h-160'
-        viewBox='0 0 640 640'
-        fill='none'
-      >
-        <circle cx='320' cy='320' r='120' stroke='#F2A81D' strokeWidth='1.5' />
-        <circle cx='320' cy='320' r='220' stroke='#F2A81D' strokeWidth='1.5' />
-        <circle cx='320' cy='320' r='315' stroke='#F2A81D' strokeWidth='1.5' />
-        <line
-          x1='320'
-          y1='0'
-          x2='320'
-          y2='640'
-          stroke='#F2A81D'
-          strokeWidth='1'
-        />
-        <line
-          x1='0'
-          y1='320'
-          x2='640'
-          y2='320'
-          stroke='#F2A81D'
-          strokeWidth='1'
-        />
-      </svg>
+        className='absolute inset-0 bg-linear-to-r from-navy-950 via-navy-950/85 to-navy-950/40'
+      />
 
       <div className='relative max-w-(--container-page) mx-auto px-6 md:px-10 py-24 md:py-36'>
         <div className='max-w-3xl'>
