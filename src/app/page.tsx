@@ -1,8 +1,8 @@
 import Header from '@/components/layout/Header';
 import Hero from '@/components/home/Hero';
 import CertificationsBar from '@/components/home/CertificationsBar';
+import ProductCarousel from '@/components/home/ProductCarousel';
 import AboutLegacy from '@/components/home/AboutLegacy';
-import ProductCategories from '@/components/home/ProductCategories';
 import IndustriesServed from '@/components/home/IndustriesServed';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
 import CTABanner from '@/components/home/CTABanner';
@@ -15,8 +15,8 @@ export default function HomePage() {
       <main>
         <Hero />
         <CertificationsBar />
+        <ProductCarousel />
         <AboutLegacy />
-        <ProductCategories />
         <IndustriesServed />
         <WhyChooseUs />
         <CTABanner />

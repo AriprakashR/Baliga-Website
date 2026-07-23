@@ -112,3 +112,25 @@ h4 {
 .nameplate--dark {
   @apply bg-navy-800 border-white/15 text-white;
 }
+
+/* ==========================================================================
+   MARQUEE — continuous auto-scroll
+   Used by the homepage product carousel: the track renders two identical
+   copies of the card list back to back, then animates from 0 to -50%
+   (exactly one copy's width) on an infinite linear loop. Since both halves
+   are identical, the restart frame is pixel-identical to the frame before
+   it — no visible jump. Paused on hover/focus (see the component) so
+   visitors can stop it to read or click a card.
+   ========================================================================== */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 34s linear infinite;
+}
