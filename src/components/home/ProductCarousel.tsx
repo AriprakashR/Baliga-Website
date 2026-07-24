@@ -1,88 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { withBasePath } from '@/lib/basePath';
+import { PRODUCT_LINES } from '@/data/productLines';
 
-const CATEGORIES = [
-  {
-    name: 'Explosion-Proof Lighting',
-    href: '/products/lighting',
-    image: '/products/Explosion_Proof_Lighting.jpg',
-    description:
-      'Luminaires, control gear, lighting & FRP junction boxes, switches, plug & sockets, starters, and cable glands.',
-    icon: (
-      <svg viewBox='0 0 48 48' fill='none' className='w-full h-full'>
-        <circle cx='24' cy='20' r='12' stroke='currentColor' strokeWidth='1.6' />
-        <path
-          d='M18 32h12M20 38h8'
-          stroke='currentColor'
-          strokeWidth='1.6'
-          strokeLinecap='round'
-        />
-        <path
-          d='M24 8v4M12 20h-4M40 20h-4M15.5 11.5l-2.8-2.8M32.5 11.5l2.8-2.8'
-          stroke='currentColor'
-          strokeWidth='1.4'
-          strokeLinecap='round'
-        />
-      </svg>
-    ),
-  },
-  {
-    name: 'Communication Systems',
-    href: '/products/communication',
-    image: '/products/Communication_Systems.jpg',
-    description:
-      'Explosion-proof communication equipment for hazardous industrial sites.',
-    icon: (
-      <svg viewBox='0 0 48 48' fill='none' className='w-full h-full'>
-        <rect x='14' y='8' width='20' height='32' rx='2' stroke='currentColor' strokeWidth='1.6' />
-        <circle cx='24' cy='33' r='1.6' fill='currentColor' />
-        <path
-          d='M18 15h12M18 20h12M18 25h8'
-          stroke='currentColor'
-          strokeWidth='1.4'
-          strokeLinecap='round'
-        />
-      </svg>
-    ),
-  },
-  {
-    name: 'Panels & Enclosures',
-    href: '/products/panels',
-    image: '/products/Panels_&_Enclosures.jpg',
-    description:
-      'Control stations, panels, monitors, and purging systems for flameproof installations.',
-    icon: (
-      <svg viewBox='0 0 48 48' fill='none' className='w-full h-full'>
-        <rect x='9' y='9' width='30' height='30' rx='2' stroke='currentColor' strokeWidth='1.6' />
-        <path d='M9 19h30M19 9v30M29 9v10' stroke='currentColor' strokeWidth='1.4' />
-        <circle cx='24' cy='29' r='4' stroke='currentColor' strokeWidth='1.4' />
-      </svg>
-    ),
-  },
-  {
-    name: 'Flow Measuring Equipment',
-    href: '/products/flow-measuring',
-    image: '/products/Flow_Measuring_Equipment.jpg',
-    description:
-      'Orifice plates, meter runs, venturi tubes, flow nozzles, and multistage assemblies.',
-    icon: (
-      <svg viewBox='0 0 48 48' fill='none' className='w-full h-full'>
-        <circle cx='24' cy='24' r='15' stroke='currentColor' strokeWidth='1.6' />
-        <path d='M24 24l7-9' stroke='currentColor' strokeWidth='1.6' strokeLinecap='round' />
-        <circle cx='24' cy='24' r='1.8' fill='currentColor' />
-        <path
-          d='M24 12v2M24 34v2M12 24h2M34 24h2'
-          stroke='currentColor'
-          strokeWidth='1.2'
-          strokeLinecap='round'
-        />
-      </svg>
-    ),
-  },
-];
-
-function CategoryCard({ category, hidden }: { category: (typeof CATEGORIES)[number]; hidden?: boolean }) {
+function CategoryCard({
+  category,
+  hidden,
+}: {
+  category: (typeof PRODUCT_LINES)[number];
+  hidden?: boolean;
+}) {
   return (
     <Link
       href={category.href}
@@ -125,7 +52,7 @@ export default function ProductCarousel() {
   return (
     <section className='bg-navy-900'>
       <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-24'>
-        <div className='flex items-end justify-between flex-wrap gap-6 mb-12'>
+        <div className='flex items-end justify-between flex-wrap gap-6 '>
           <div>
             <span className='font-display text-xs tracking-widest text-amber-500'>
               WHAT WE MAKE
@@ -162,11 +89,15 @@ export default function ProductCarousel() {
           aria-label='Product categories'
           className='flex w-max gap-5 px-6 md:px-10 pb-2 animate-marquee hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] motion-reduce:[animation-play-state:paused]'
         >
-          {CATEGORIES.map(category => (
+          {PRODUCT_LINES.map(category => (
             <CategoryCard key={category.name} category={category} />
           ))}
-          {CATEGORIES.map(category => (
-            <CategoryCard key={`repeat-${category.name}`} category={category} hidden />
+          {PRODUCT_LINES.map(category => (
+            <CategoryCard
+              key={`repeat-${category.name}`}
+              category={category}
+              hidden
+            />
           ))}
         </div>
       </div>
