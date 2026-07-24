@@ -14,15 +14,15 @@ const NAV_SECTIONS = [
 export default function AboutPage() {
   return (
     <>
-      <section className='bg-navy pt-24 pb-16 text-center text-white'>
-        <div className='mx-auto max-w-3xl px-6'>
-          <p className='font-mono text-xs uppercase tracking-widest text-hazard-yellow'>
+      <section className='bg-navy-900 py-20 text-center text-white'>
+        <div className='max-w-(--container-page) mx-auto px-6 md:px-10'>
+          <span className='font-display text-xs tracking-widest text-amber-500'>
             About Baliga
-          </p>
-          <h1 className='mt-3 font-display text-4xl font-bold'>
+          </span>
+          <h1 className='mt-4 text-3xl md:text-4xl font-bold'>
             Six Decades of Hazardous-Area Engineering
           </h1>
-          <p className='mt-4 text-steel-200'>
+          <p className='mt-4 max-w-xl mx-auto font-body normal-case text-white/70'>
             Founded in 1960 and based in Chennai, India, Baliga has manufactured
             explosion-proof and waterproof electrical equipment since pioneering
             the category in India in 1962.
@@ -70,24 +70,23 @@ export default function AboutPage() {
             Corporate Philosophy
           </h2>
           <p className='mt-4 leading-relaxed text-steel-500'>
-            &ldquo;We are committed to respect the society and the
-            environment to which we belong and will strive to contribute to
-            its progress and welfare.&rdquo; This philosophy is carried
-            through quality delivery, business ethics, employee loyalty,
-            continuous improvement (Kaizen), innovation, and responsiveness
-            to our customers.
+            &ldquo;We are committed to respect the society and the environment
+            to which we belong and will strive to contribute to its progress and
+            welfare.&rdquo; This philosophy is carried through quality delivery,
+            business ethics, employee loyalty, continuous improvement (Kaizen),
+            innovation, and responsiveness to our customers.
           </p>
           <p className='mt-4 leading-relaxed text-steel-500'>
-            <span className='font-semibold text-navy'>Mission:</span> To
-            offer our customers a complete range of explosion-proof
-            equipment of world-class quality, and to be recognised as the
-            leaders in India in this field.
+            <span className='font-semibold text-navy'>Mission:</span> To offer
+            our customers a complete range of explosion-proof equipment of
+            world-class quality, and to be recognised as the leaders in India in
+            this field.
           </p>
           <p className='mt-4 leading-relaxed text-steel-500'>
-            <span className='font-semibold text-navy'>Vision:</span> Offer
-            an extensive range of explosion-proof equipment, maintain our
-            leadership position in India, and grow our presence in the
-            South East Asian market.
+            <span className='font-semibold text-navy'>Vision:</span> Offer an
+            extensive range of explosion-proof equipment, maintain our
+            leadership position in India, and grow our presence in the South
+            East Asian market.
           </p>
         </div>
       </section>
