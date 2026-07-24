@@ -14,7 +14,7 @@ const NAV_SECTIONS = [
 export default function AboutPage() {
   return (
     <>
-      <section className='bg-navy py-16 text-center text-white'>
+      <section className='bg-navy pt-24 pb-16 text-center text-white'>
         <div className='mx-auto max-w-3xl px-6'>
           <p className='font-mono text-xs uppercase tracking-widest text-hazard-yellow'>
             About Baliga
@@ -69,13 +69,25 @@ export default function AboutPage() {
           <h2 className='font-display text-2xl font-bold text-navy'>
             Corporate Philosophy
           </h2>
-          {/* DRAFT COPY — the old site's philosophy text wasn't captured verbatim.
-              Replace with the client's approved statement before launch. */}
           <p className='mt-4 leading-relaxed text-steel-500'>
-            Draft: Baliga's approach centers on engineering equipment that
-            performs reliably in hazardous environments where failure isn't an
-            option — treating certification not as a formality, but as a
-            baseline for every product that leaves the factory.
+            &ldquo;We are committed to respect the society and the
+            environment to which we belong and will strive to contribute to
+            its progress and welfare.&rdquo; This philosophy is carried
+            through quality delivery, business ethics, employee loyalty,
+            continuous improvement (Kaizen), innovation, and responsiveness
+            to our customers.
+          </p>
+          <p className='mt-4 leading-relaxed text-steel-500'>
+            <span className='font-semibold text-navy'>Mission:</span> To
+            offer our customers a complete range of explosion-proof
+            equipment of world-class quality, and to be recognised as the
+            leaders in India in this field.
+          </p>
+          <p className='mt-4 leading-relaxed text-steel-500'>
+            <span className='font-semibold text-navy'>Vision:</span> Offer
+            an extensive range of explosion-proof equipment, maintain our
+            leadership position in India, and grow our presence in the
+            South East Asian market.
           </p>
         </div>
       </section>

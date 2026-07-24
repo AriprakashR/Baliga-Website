@@ -1,0 +1,101 @@
+[
+  {
+    "industry": "Consultants",
+    "companies": [
+      "Bechtel France SA",
+      "Kvaerner Power & Gas Limited",
+      "Saipem Projects Limited",
+      "Foster Wheeler Pvt. Ltd",
+      "Technip India Limited",
+      "Uhde Limited",
+      "Tecnimont ICB Limited",
+      "Engineers India Limited",
+      "Toyo Engineering India Limited",
+      "Kinetic Technologies India Limited",
+      "Mott Macdonald",
+      "Tebodin",
+      "Worley Parsons"
+    ]
+  },
+  {
+    "industry": "Refineries",
+    "companies": [
+      "Bharat Petroleum Corporation Limited",
+      "Reliance Industries Limited",
+      "Indian Oil Corporation Limited",
+      "Mangalore Refinery and Petrochemicals Limited",
+      "Essar Oil Limited",
+      "Numaligarh Refineries Limited",
+      "Hindustan Petroleum Corporation Limited",
+      "Chennai Petroleum Corporation Limited",
+      "Oman Oil Refineries and Petroleum Industries",
+      "Takreer Refinery"
+    ]
+  },
+  {
+    "industry": "Oil Drilling & Platforms",
+    "companies": [
+      "Oil India Limited",
+      "Oil and Natural Gas Commission",
+      "Schlumberger"
+    ]
+  },
+  {
+    "industry": "Contracting Companies",
+    "companies": [
+      "Samsung Engineering Limited",
+      "Siemens Limited",
+      "Hyundai Heavy Industries Limited",
+      "Daelim Engineering Limited",
+      "Asea Brown Boveri Limited",
+      "Larsen & Toubro Limited",
+      "Honeywell Automation India Limited"
+    ]
+  },
+  {
+    "industry": "Petrochemicals",
+    "companies": [
+      "Reliance Petroleum Limited",
+      "Bongaigaon Refinery & Petrochemicals Limited",
+      "Gas Authority of India Limited",
+      "SPIC Petrochemicals Limited",
+      "Assam Petrochemicals Limited",
+      "Indian Petrochemicals Limited",
+      "Haldia Petrochemicals Limited",
+      "Petroleum Development Oman"
+    ]
+  },
+  {
+    "industry": "Fertilisers & Chemicals",
+    "companies": [
+      "Chambal Fertilisers & Chemicals Limited",
+      "Coromandel Fertilisers & Chemicals Limited",
+      "Indian Farmers Fertiliser Co-operative Limited (IFFCO)",
+      "Gujarat State Fertilisers & Corporation Limited",
+      "Krishak Bharathi Co-operative Limited (KRIBHCO)",
+      "Tata Chemicals Limited",
+      "Indorama Corporation",
+      "TCI Sanmar Group"
+    ]
+  },
+  {
+    "industry": "Pharmaceutical",
+    "companies": [
+      "Aurobindo Pharma Limited",
+      "Cipla Limited",
+      "Ranbaxy Laboratories Limited",
+      "Dr. Reddy's Laboratories Limited",
+      "Malladi Drugs & Pharmaceuticals Limited",
+      "MSN Laboratories Pvt. Ltd",
+      "Mylan Laboratories Limited",
+      "Hetero Drugs"
+    ]
+  },
+  {
+    "industry": "Space Research & Aeronautics",
+    "companies": [
+      "Hindustan Aeronautics Limited",
+      "Indian Space Research Organization Limited"
+    ]
+  }
+]
