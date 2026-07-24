@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Mail, MapPin, Phone, Printer } from 'lucide-react';
+import ContactForm from '@/components/contact/ContactForm';
 
 export const metadata: Metadata = { title: 'Contact' };
 
@@ -46,15 +47,15 @@ export default function ContactPage() {
             Contact Baliga
           </h1>
           <p className='mt-4 max-w-xl mx-auto font-body normal-case text-white/70'>
-            Registered office, factory, and branch contacts for enquiries
-            across India and internationally.
+            Registered office, factory, and branch contacts for enquiries across
+            India and internationally.
           </p>
         </div>
       </section>
 
       <section className='bg-white'>
-        <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-16 grid md:grid-cols-2 gap-12'>
-          <div>
+        <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-16 grid lg:grid-cols-12 gap-12'>
+          <div className='lg:col-span-4'>
             <span className='font-display text-xs tracking-widest text-amber-600'>
               REGISTERED OFFICE &amp; FACTORY
             </span>
@@ -82,11 +83,11 @@ export default function ContactPage() {
             </ul>
           </div>
 
-          <div>
+          <div className='lg:col-span-8'>
             <span className='font-display text-xs tracking-widest text-amber-600'>
               BRANCH &amp; REGIONAL OFFICES
             </span>
-            <div className='mt-6 grid sm:grid-cols-2 gap-4'>
+            <div className='mt-6 grid sm:grid-cols-2 xl:grid-cols-3 gap-4'>
               {BRANCHES.map(b => (
                 <div
                   key={b.region}
@@ -106,6 +107,14 @@ export default function ContactPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className='bg-mist'>
+        <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-16'>
+          <div className='max-w-2xl mx-auto'>
+            <ContactForm />
           </div>
         </div>
       </section>
