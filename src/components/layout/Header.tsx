@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const NAV_LINKS = [
   { label: 'Products', href: '/products' },
-  { label: 'Industries Served', href: '/industries' },
+  { label: 'Industries & Clients', href: '/industries' },
   { label: 'Certifications', href: '/certifications' },
   { label: 'About Us', href: '/about' },
   { label: 'Contact', href: '/contact' },

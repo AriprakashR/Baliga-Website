@@ -15,8 +15,7 @@ const COLUMNS = [
     links: [
       { label: 'About Us', href: '/about' },
       { label: 'Certifications', href: '/certifications' },
-      { label: 'Industries Served', href: '/industries' },
-      { label: 'Clients', href: '/clients' },
+      { label: 'Industries & Clients', href: '/industries' },
     ],
   },
   {
