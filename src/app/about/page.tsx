@@ -271,23 +271,16 @@ export default function AboutPage() {
                   </ul>
                 </div>
 
-                <div className='mt-6 flex items-start gap-2 rounded-sm border border-line bg-white p-4 text-sm text-steel'>
+                <Link
+                  href='/contact'
+                  className='mt-6 flex items-center gap-2 rounded-sm border border-line bg-white p-4 text-sm text-steel transition-colors hover:border-amber-500'
+                >
                   <MapPin
                     size={16}
                     className='mt-0.5 shrink-0 text-amber-600'
                   />
                   Registered office &amp; factory — Kovilambakkam, Chennai
-                </div>
-
-                <div className='mt-4 overflow-hidden rounded-sm border border-line'>
-                  <iframe
-                    title='Baliga registered office & factory — Kovilambakkam, Chennai'
-                    src='https://www.google.com/maps?q=Baliga+Lighting+equipment+Pvt+Ltd,+12.9474601,80.1833329&output=embed'
-                    className='h-56 w-full grayscale-20'
-                    loading='lazy'
-                    referrerPolicy='no-referrer-when-downgrade'
-                  />
-                </div>
+                </Link>
               </Reveal>
             </div>
           </section>
@@ -502,13 +495,13 @@ export default function AboutPage() {
                   ))}
                 </ul>
 
-                <a
-                  href='#profile'
+                <Link
+                  href='/contact'
                   className='mt-4 inline-flex items-center gap-2 font-display text-sm font-semibold text-navy-900 hover:text-amber-600'
                 >
                   View facility location on the map
-                  <ArrowRight size={16} className='-rotate-90' />
-                </a>
+                  <ArrowRight size={16} />
+                </Link>
               </Reveal>
 
               <Reveal className='delay-150'>

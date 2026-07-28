@@ -81,13 +81,23 @@ export default function ContactPage() {
                 baligamf@baliga.com
               </li>
             </ul>
+
+            <div className='mt-10 overflow-hidden rounded-sm border border-line'>
+              <iframe
+                title='Baliga registered office & factory — Kovilambakkam, Chennai'
+                src='https://www.google.com/maps?q=Baliga+Lighting+equipment+Pvt+Ltd,+12.9474601,80.1833329&output=embed'
+                className='h-64 w-full grayscale-20'
+                loading='lazy'
+                referrerPolicy='no-referrer-when-downgrade'
+              />
+            </div>
           </div>
 
           <div className='lg:col-span-8'>
             <span className='font-display text-xs tracking-widest text-amber-600'>
               BRANCH &amp; REGIONAL OFFICES
             </span>
-            <div className='mt-6 grid sm:grid-cols-2 xl:grid-cols-3 gap-4'>
+            <div className='mt-6 grid sm:grid-cols-2 xl:grid-cols-1 gap-4'>
               {BRANCHES.map(b => (
                 <div
                   key={b.region}
