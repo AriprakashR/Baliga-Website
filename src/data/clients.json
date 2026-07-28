@@ -2,100 +2,277 @@
   {
     "industry": "Consultants",
     "companies": [
-      "Bechtel France SA",
-      "Kvaerner Power & Gas Limited",
-      "Saipem Projects Limited",
-      "Foster Wheeler Pvt. Ltd",
-      "Technip India Limited",
-      "Uhde Limited",
-      "Tecnimont ICB Limited",
-      "Engineers India Limited",
-      "Toyo Engineering India Limited",
-      "Kinetic Technologies India Limited",
-      "Mott Macdonald",
-      "Tebodin",
-      "Worley Parsons"
+      {
+        "name": "Bechtel France SA",
+        "logo": "/clients/bechtel-france-sa.jpg"
+      },
+      {
+        "name": "Kvaerner Power & Gas Limited",
+        "logo": "/clients/kvaerner-power-gas-limited.jpg"
+      },
+      {
+        "name": "Saipem Projects Limited",
+        "logo": "/clients/saipem-projects-limited.jpg"
+      },
+      {
+        "name": "Foster Wheeler Pvt. Ltd",
+        "logo": "/clients/foster-wheeler-pvt-ltd.jpg"
+      },
+      {
+        "name": "Technip India Limited",
+        "logo": "/clients/technip-india-limited.jpg"
+      },
+      {
+        "name": "Uhde Limited",
+        "logo": "/clients/uhde-limited.jpg"
+      },
+      {
+        "name": "Tecnimont ICB Limited",
+        "logo": "/clients/tecnimont-icb-limited.jpg"
+      },
+      {
+        "name": "Engineers India Limited",
+        "logo": "/clients/engineers-india-limited.jpg"
+      },
+      {
+        "name": "Toyo Engineering India Limited",
+        "logo": "/clients/toyo-engineering-india-limited.jpg"
+      },
+      {
+        "name": "Kinetic Technologies India Limited",
+        "logo": "/clients/kinetic-technologies-india-limited.jpg"
+      },
+      {
+        "name": "Mott Macdonald",
+        "logo": "/clients/mott-macdonald.gif"
+      },
+      {
+        "name": "Tebodin",
+        "logo": "/clients/tebodin.jpg"
+      },
+      {
+        "name": "Worley Parsons",
+        "logo": "/clients/worley-parsons.png"
+      }
     ]
   },
   {
     "industry": "Refineries",
     "companies": [
-      "Bharat Petroleum Corporation Limited",
-      "Reliance Industries Limited",
-      "Indian Oil Corporation Limited",
-      "Mangalore Refinery and Petrochemicals Limited",
-      "Essar Oil Limited",
-      "Numaligarh Refineries Limited",
-      "Hindustan Petroleum Corporation Limited",
-      "Chennai Petroleum Corporation Limited",
-      "Oman Oil Refineries and Petroleum Industries",
-      "Takreer Refinery"
+      {
+        "name": "Bharat Petroleum Corporation Limited",
+        "logo": "/clients/bharat-petroleum-corporation-limited.jpg"
+      },
+      {
+        "name": "Reliance Industries Limited",
+        "logo": "/clients/reliance-industries-limited.jpg"
+      },
+      {
+        "name": "Indian Oil Corporation Limited",
+        "logo": "/clients/indian-oil-corporation-limited.jpg"
+      },
+      {
+        "name": "Mangalore Refinery and Petrochemicals Limited",
+        "logo": "/clients/mangalore-refinery-and-petrochemicals-limited.jpg"
+      },
+      {
+        "name": "Essar Oil Limited",
+        "logo": "/clients/essar-oil-limited.jpg"
+      },
+      {
+        "name": "Numaligarh Refineries Limited",
+        "logo": "/clients/numaligarh-refineries-limited.jpg"
+      },
+      {
+        "name": "Hindustan Petroleum Corporation Limited",
+        "logo": "/clients/hindustan-petroleum-corporation-limited.jpg"
+      },
+      {
+        "name": "Chennai Petroleum Corporation Limited",
+        "logo": "/clients/chennai-petroleum-corporation-limited.jpg"
+      },
+      {
+        "name": "Oman Oil Refineries and Petroleum Industries",
+        "logo": "/clients/oman-oil-refineries-and-petroleum-industries.jpg"
+      },
+      {
+        "name": "Takreer Refinery",
+        "logo": "/clients/takreer-refinery.jpg"
+      }
     ]
   },
   {
     "industry": "Oil Drilling & Platforms",
     "companies": [
-      "Oil India Limited",
-      "Oil and Natural Gas Commission",
-      "Schlumberger"
+      {
+        "name": "Oil India Limited",
+        "logo": "/clients/oil-india-limited.jpg"
+      },
+      {
+        "name": "Oil and Natural Gas Commission",
+        "logo": "/clients/oil-and-natural-gas-commission.jpg"
+      },
+      {
+        "name": "Schlumberger",
+        "logo": "/clients/schlumberger.jpg"
+      }
     ]
   },
   {
     "industry": "Contracting Companies",
     "companies": [
-      "Samsung Engineering Limited",
-      "Siemens Limited",
-      "Hyundai Heavy Industries Limited",
-      "Daelim Engineering Limited",
-      "Asea Brown Boveri Limited",
-      "Larsen & Toubro Limited",
-      "Honeywell Automation India Limited"
+      {
+        "name": "Samsung Engineering Limited",
+        "logo": "/clients/samsung-engineering-limited.jpg"
+      },
+      {
+        "name": "Siemens Limited",
+        "logo": "/clients/siemens-limited.jpg"
+      },
+      {
+        "name": "Hyundai Heavy Industries Limited",
+        "logo": "/clients/hyundai-heavy-industries-limited.jpg"
+      },
+      {
+        "name": "Daelim Engineering Limited",
+        "logo": "/clients/daelim-engineering-limited.jpg"
+      },
+      {
+        "name": "Asea Brown Boveri Limited",
+        "logo": "/clients/asea-brown-boveri-limited.jpg"
+      },
+      {
+        "name": "Larsen & Toubro Limited",
+        "logo": "/clients/larsen-toubro-limited.jpg"
+      },
+      {
+        "name": "Honeywell Automation India Limited",
+        "logo": "/clients/honeywell-automation-india-limited.jpg"
+      }
     ]
   },
   {
     "industry": "Petrochemicals",
     "companies": [
-      "Reliance Petroleum Limited",
-      "Bongaigaon Refinery & Petrochemicals Limited",
-      "Gas Authority of India Limited",
-      "SPIC Petrochemicals Limited",
-      "Assam Petrochemicals Limited",
-      "Indian Petrochemicals Limited",
-      "Haldia Petrochemicals Limited",
-      "Petroleum Development Oman"
+      {
+        "name": "Reliance Petroleum Limited",
+        "logo": "/clients/reliance-petroleum-limited.jpg"
+      },
+      {
+        "name": "Bongaigaon Refinery & Petrochemicals Limited",
+        "logo": "/clients/bongaigaon-refinery-petrochemicals-limited.jpg"
+      },
+      {
+        "name": "Gas Authority of India Limited",
+        "logo": "/clients/gas-authority-of-india-limited.jpg"
+      },
+      {
+        "name": "SPIC Petrochemicals Limited",
+        "logo": "/clients/spic-petrochemicals-limited.jpg"
+      },
+      {
+        "name": "Assam Petrochemicals Limited",
+        "logo": "/clients/assam-petrochemicals-limited.jpg"
+      },
+      {
+        "name": "Indian Petrochemicals Limited",
+        "logo": "/clients/indian-petrochemicals-limited.jpg"
+      },
+      {
+        "name": "Haldia Petrochemicals Limited",
+        "logo": "/clients/haldia-petrochemicals-limited.jpg"
+      },
+      {
+        "name": "Petroleum Development Oman",
+        "logo": "/clients/petroleum-development-oman.png"
+      }
     ]
   },
   {
     "industry": "Fertilisers & Chemicals",
     "companies": [
-      "Chambal Fertilisers & Chemicals Limited",
-      "Coromandel Fertilisers & Chemicals Limited",
-      "Indian Farmers Fertiliser Co-operative Limited (IFFCO)",
-      "Gujarat State Fertilisers & Corporation Limited",
-      "Krishak Bharathi Co-operative Limited (KRIBHCO)",
-      "Tata Chemicals Limited",
-      "Indorama Corporation",
-      "TCI Sanmar Group"
+      {
+        "name": "Chambal Fertilisers & Chemicals Limited",
+        "logo": "/clients/chambal-fertilisers-chemicals-limited.jpg"
+      },
+      {
+        "name": "Coromandel Fertilisers & Chemicals Limited",
+        "logo": "/clients/coromandel-fertilisers-chemicals-limited.jpg"
+      },
+      {
+        "name": "Indian Farmers Fertiliser Co-operative Limited (IFFCO)",
+        "logo": "/clients/indian-farmers-fertiliser-co-operative-limited-iffco.jpg"
+      },
+      {
+        "name": "Gujarat State Fertilisers & Corporation Limited",
+        "logo": "/clients/gujarat-state-fertilisers-corporation-limited.jpg"
+      },
+      {
+        "name": "Krishak Bharathi Co-operative Limited (KRIBHCO)",
+        "logo": "/clients/krishak-bharathi-co-operative-limited-kribhco.jpg"
+      },
+      {
+        "name": "Tata Chemicals Limited",
+        "logo": "/clients/tata-chemicals-limited.jpg"
+      },
+      {
+        "name": "Indorama Corporation",
+        "logo": "/clients/indorama-corporation.jpg"
+      },
+      {
+        "name": "TCI Sanmar Group",
+        "logo": "/clients/tci-sanmar-group.jpg"
+      }
     ]
   },
   {
     "industry": "Pharmaceutical",
     "companies": [
-      "Aurobindo Pharma Limited",
-      "Cipla Limited",
-      "Ranbaxy Laboratories Limited",
-      "Dr. Reddy's Laboratories Limited",
-      "Malladi Drugs & Pharmaceuticals Limited",
-      "MSN Laboratories Pvt. Ltd",
-      "Mylan Laboratories Limited",
-      "Hetero Drugs"
+      {
+        "name": "Aurobindo Pharma Limited",
+        "logo": "/clients/aurobindo-pharma-limited.jpg"
+      },
+      {
+        "name": "Cipla Limited",
+        "logo": "/clients/cipla-limited.jpg"
+      },
+      {
+        "name": "Ranbaxy Laboratories Limited",
+        "logo": "/clients/ranbaxy-laboratories-limited.jpg"
+      },
+      {
+        "name": "Dr. Reddy's Laboratories Limited",
+        "logo": "/clients/dr-reddy-s-laboratories-limited.jpg"
+      },
+      {
+        "name": "Malladi Drugs & Pharmaceuticals Limited",
+        "logo": "/clients/malladi-drugs-pharmaceuticals-limited.jpg"
+      },
+      {
+        "name": "MSN Laboratories Pvt. Ltd",
+        "logo": "/clients/msn-laboratories-pvt-ltd.png"
+      },
+      {
+        "name": "Mylan Laboratories Limited",
+        "logo": "/clients/mylan-laboratories-limited.png"
+      },
+      {
+        "name": "Hetero Drugs",
+        "logo": "/clients/hetero-drugs.png"
+      }
     ]
   },
   {
     "industry": "Space Research & Aeronautics",
     "companies": [
-      "Hindustan Aeronautics Limited",
-      "Indian Space Research Organization Limited"
+      {
+        "name": "Hindustan Aeronautics Limited",
+        "logo": "/clients/hindustan-aeronautics-limited.jpg"
+      },
+      {
+        "name": "Indian Space Research Organization Limited",
+        "logo": "/clients/indian-space-research-organization-limited.jpg"
+      }
     ]
   }
 ]

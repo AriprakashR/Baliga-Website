@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 
-type ClientGroup = { industry: string; companies: string[] };
+type Company = { name: string; logo: string };
+type ClientGroup = { industry: string; companies: Company[] };
 
 export default function ClientsAccordion({
   groups,
@@ -63,13 +64,24 @@ export default function ClientsAccordion({
               }`}
             >
               <div className='overflow-hidden'>
-                <ul className='bg-mist px-6 pb-6  pt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2'>
+                <ul className='bg-mist px-6 pb-6 pt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4'>
                   {group.companies.map(company => (
                     <li
-                      key={company}
-                      className='font-body normal-case text-steel text-sm font-bold leading-relaxed'
+                      key={company.name}
+                      className='flex flex-col items-center gap-3 rounded-sm border border-line bg-white p-4 text-center'
                     >
-                      {company}
+                      <img
+                        src={company.logo}
+                        alt={company.name}
+                        loading='lazy'
+                        className='h-20 w-full object-contain'
+                        onError={e => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                      <span className='font-body normal-case text-steel text-xs font-bold leading-snug'>
+                        {company.name}
+                      </span>
                     </li>
                   ))}
                 </ul>
