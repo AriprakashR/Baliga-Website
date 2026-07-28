@@ -26,7 +26,7 @@ const CERTIFICATIONS = [
 export default function CertificationsPage() {
   return (
     <>
-      <section className='bg-navy-900 py-20 text-center text-white'>
+      <section className='bg-navy-900 pt-30 pb-20  text-center text-white'>
         <div className='max-w-(--container-page) mx-auto px-6 md:px-10'>
           <span className='font-display text-xs tracking-widest text-amber-500'>
             CERTIFIED TO
@@ -36,8 +36,7 @@ export default function CertificationsPage() {
           </h1>
           <p className='mt-4 max-w-xl mx-auto font-body normal-case text-white/70'>
             Every product leaving our Chennai facility is built to
-            internationally recognised standards for hazardous-area
-            equipment.
+            internationally recognised standards for hazardous-area equipment.
           </p>
         </div>
       </section>

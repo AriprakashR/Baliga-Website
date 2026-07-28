@@ -38,7 +38,7 @@ const BRANCHES = [
 export default function ContactPage() {
   return (
     <>
-      <section className='bg-navy-900 py-20 text-center text-white'>
+      <section className='bg-navy-900 pt-30 pb-20 text-center text-white'>
         <div className='max-w-(--container-page) mx-auto px-6 md:px-10'>
           <span className='font-display text-xs tracking-widest text-amber-500'>
             GET IN TOUCH
