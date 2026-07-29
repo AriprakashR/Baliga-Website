@@ -1,18 +1,22 @@
 // Sourced from https://baliga.com/shows/faq — regrouped into topic
 // categories and lightly reformatted for accordion display. Answer text is
 // reproduced from the source; reference tables (zone/division, IP codes,
-// NEMA equivalents, temperature classes) are transcribed verbatim.
+// NEMA equivalents, temperature classes) are transcribed verbatim and
+// shared with the Technical Info page via technicalTables.ts.
 
-export interface FAQTable {
-  headers: string[];
-  rows: string[][];
-}
+import type { DataTable } from './technicalTables';
+import {
+  IP_RATING_TABLE,
+  NEMA_TABLE,
+  TEMPERATURE_CLASS_TABLE,
+  ZONE_DIVISION_TABLE,
+} from './technicalTables';
 
 export interface FAQItem {
   id: string;
   question: string;
   answer: string;
-  table?: FAQTable;
+  table?: DataTable;
 }
 
 export interface FAQCategory {
@@ -37,30 +41,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
         question: "What is meant by 'Zones' and 'Divisions'?",
         answer:
           'Process plants are divided into Zones (European and IEC method) or Divisions (North American method) according to the likelihood of a potentially explosive atmosphere being present.',
-        table: {
-          headers: [
-            'Likelihood of explosive mixture',
-            'European / IEC classification',
-            'North American classification',
-          ],
-          rows: [
-            [
-              'Continuously present, or present for long periods',
-              'Zone 0 (gases), Zone 20 (dusts)',
-              'Class I Division 1 (gases), Class II Division 1 (dusts)',
-            ],
-            [
-              'Likely to occur in normal operation',
-              'Zone 1 (gases), Zone 21 (dusts)',
-              'Class I Division 1 (gases), Class II Division 1 (dusts)',
-            ],
-            [
-              'Not likely in normal operation, and if it occurs, only briefly',
-              'Zone 2 (gases), Zone 22 (dusts)',
-              'Class I Division 1 (gases), Class II Division 1 (dusts), Class III Division 1/2 (fibres)',
-            ],
-          ],
-        },
+        table: ZONE_DIVISION_TABLE,
       },
       {
         id: 'gas-groups',
@@ -73,61 +54,14 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
         question: 'What does IP in IP-65 stand for?',
         answer:
           'IP means Ingress Protection, i.e. protection of apparatus from the entry of solids and liquids. The first digit rates protection against solids, the second against liquids.',
-        table: {
-          headers: ['Level', 'Solids protection', 'Liquids protection'],
-          rows: [
-            ['0', 'No protection', 'No protection'],
-            [
-              '1',
-              'Protected against solid objects up to 50mm, e.g. hands',
-              'Protected against vertically falling drops of water',
-            ],
-            [
-              '2',
-              'Protected against solid objects up to 12mm, e.g. fingers',
-              'Protected against water spray up to 15° from vertical',
-            ],
-            [
-              '3',
-              'Protected against solid objects up to 2.5mm, e.g. tools',
-              'Protected against water spray up to 60° from vertical',
-            ],
-            [
-              '4',
-              'Protected against solid objects over 1mm, e.g. wires',
-              'Protected against water sprays from all directions',
-            ],
-            [
-              '5',
-              'Protected against dust (no harmful deposits)',
-              'Protected against water jets from all directions',
-            ],
-            [
-              '6',
-              'Totally protected against dust',
-              'Protected against strong water jets from all directions, e.g. offshore',
-            ],
-            ['7', '—', 'Protected against immersion between 15cm and 1m in depth'],
-            ['8', '—', 'Protected against long immersion under pressure'],
-          ],
-        },
+        table: IP_RATING_TABLE,
       },
       {
         id: 'temperature-class',
         question: 'What is Temperature Class of a product?',
         answer:
           'The ignition temperature is the lowest temperature on the surface at which an explosive atmosphere will ignite. Gases and dusts have been divided into temperature classes according to their ignition temperatures, so that electrical equipment can be further sub-divided into six temperature classes, T1 to T6.',
-        table: {
-          headers: ['Temperature class', 'Maximum surface temperature'],
-          rows: [
-            ['T1', '450°C'],
-            ['T2', '300°C'],
-            ['T3', '200°C'],
-            ['T4', '135°C'],
-            ['T5', '100°C'],
-            ['T6', '85°C'],
-          ],
-        },
+        table: TEMPERATURE_CLASS_TABLE,
       },
     ],
   },
@@ -153,16 +87,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
         question: 'What does NEMA stand for?',
         answer:
           "NEMA is the acronym for National Electrical Manufacturers' Association. North American practice is to use NEMA standards to describe ingress protection.",
-        table: {
-          headers: ['NEMA rating', 'IP equivalent'],
-          rows: [
-            ['NEMA 3', 'IP 54'],
-            ['NEMA 4', 'IP 55'],
-            ['NEMA 4X', 'IP 56'],
-            ['NEMA 6', 'IP 67'],
-            ['NEMA 7, 9', 'Ex equipment'],
-          ],
-        },
+        table: NEMA_TABLE,
       },
       {
         id: 'governing-bodies',

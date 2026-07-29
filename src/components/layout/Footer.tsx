@@ -22,6 +22,7 @@ const COLUMNS = [
     heading: 'Resources',
     links: [
       { label: 'Events & Exhibitions', href: '/events' },
+      { label: 'Technical Info', href: '/technical-info' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Contact', href: '/contact' },
       { label: 'Feedback', href: '/feedback' },
