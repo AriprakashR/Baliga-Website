@@ -8,7 +8,7 @@ export default function CertificationsBar() {
   return (
     <section className='bg-mist border-b border-line'>
       <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-8'>
-        <div className='flex flex-wrap items-center gap-4 md:gap-6'>
+        <div className='flex flex-wrap items-center justify-center text-center gap-4 md:gap-6'>
           <span className='font-display text-xs tracking-widest text-steel'>
             CERTIFIED TO
           </span>

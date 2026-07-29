@@ -10,7 +10,11 @@ const AUTOPLAY_MS = 5500;
 
 function ArrowIcon({ flipped }: { flipped?: boolean }) {
   return (
-    <svg viewBox='0 0 24 24' fill='none' className={`w-5 h-5 ${flipped ? 'rotate-180' : ''}`}>
+    <svg
+      viewBox='0 0 24 24'
+      fill='none'
+      className={`w-5 h-5 ${flipped ? 'rotate-180' : ''}`}
+    >
       <path
         d='M9 6l6 6-6 6'
         stroke='currentColor'
@@ -25,8 +29,8 @@ function ArrowIcon({ flipped }: { flipped?: boolean }) {
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
   const pausedRef = useRef(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const slideCount = PRODUCT_LINES.length;
-  const active = PRODUCT_LINES[activeIndex];
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -50,8 +54,15 @@ export default function Hero() {
     pausedRef.current = false;
   };
 
+  const scrollToNext = () => {
+    sectionRef.current?.nextElementSibling?.scrollIntoView({
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <section
+      ref={sectionRef}
       className='relative flex min-h-[85vh] items-center bg-navy-900 pt-20 overflow-hidden'
       onMouseEnter={pause}
       onMouseLeave={resume}
@@ -87,33 +98,47 @@ export default function Hero() {
       />
 
       <div className='relative w-full max-w-(--container-page) mx-auto px-6 md:px-10 py-16'>
-        <div key={activeIndex} className='max-w-3xl animate-hero-fade-in'>
-          <span className='nameplate nameplate--dark text-amber-500 text-xs tracking-widest mb-6'>
-            ATEX &amp; IECEx CERTIFIED · SINCE 1960
-          </span>
-
-          <h1 className='mt-6 text-5xl md:text-7xl font-extrabold text-white'>
-            {active.tagline}
-          </h1>
-
-          <p className='mt-6 max-w-xl font-body normal-case text-white/70 text-lg leading-relaxed'>
-            {active.description}
-          </p>
-
-          <div className='mt-10 flex flex-wrap items-center gap-4'>
-            <Link
-              href={active.href}
-              className='font-display text-sm tracking-wide bg-amber-500 hover:bg-amber-600 text-navy-950 px-7 py-3.5 rounded-sm transition-colors'
+        {/* All slides' text stacked in the same grid cell so the block's
+            height is the max of every slide — swapping slides no longer
+            reflows the vertically-centered section. */}
+        <div className='grid max-w-3xl'>
+          {PRODUCT_LINES.map((slide, i) => (
+            <div
+              key={slide.name}
+              className={`col-start-1 row-start-1 transition-[opacity,transform] duration-500 ease-out ${
+                i === activeIndex
+                  ? 'visible opacity-100 translate-y-0'
+                  : 'invisible opacity-0 translate-y-2'
+              }`}
             >
-              Explore {active.name}
-            </Link>
-            <Link
-              href='/certifications'
-              className='font-display text-sm tracking-wide border border-white/30 hover:border-white/60 text-white px-7 py-3.5 rounded-sm transition-colors'
-            >
-              View Certifications
-            </Link>
-          </div>
+              <span className='nameplate nameplate--dark text-amber-500 text-xs tracking-widest mb-6'>
+                ATEX &amp; IECEx CERTIFIED · SINCE 1960
+              </span>
+
+              <h1 className='mt-6 text-5xl md:text-7xl font-extrabold text-white'>
+                {slide.tagline}
+              </h1>
+
+              <p className='mt-6 max-w-xl font-body normal-case text-white/70 text-lg leading-relaxed'>
+                {slide.description}
+              </p>
+
+              <div className='mt-10 flex flex-wrap items-center gap-4'>
+                <Link
+                  href={slide.href}
+                  className='font-display text-sm tracking-wide bg-amber-500 hover:bg-amber-600 text-navy-950 px-7 py-3.5 rounded-sm transition-colors'
+                >
+                  Explore {slide.name}
+                </Link>
+                <Link
+                  href='/certifications'
+                  className='font-display text-sm tracking-wide border border-white/30 hover:border-white/60 text-white px-7 py-3.5 rounded-sm transition-colors'
+                >
+                  View Certifications
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -138,7 +163,7 @@ export default function Hero() {
       <div
         role='tablist'
         aria-label='Hero slides'
-        className='absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3'
+        className='absolute bottom-14 left-1/2 -translate-x-1/2 flex items-center gap-3'
       >
         {PRODUCT_LINES.map((slide, i) => (
           <button
@@ -149,11 +174,31 @@ export default function Hero() {
             aria-label={`Show ${slide.name} slide`}
             aria-selected={i === activeIndex}
             className={`h-1.5 rounded-full transition-all ${
-              i === activeIndex ? 'w-8 bg-amber-500' : 'w-1.5 bg-white/30 hover:bg-white/50'
+              i === activeIndex
+                ? 'w-8 bg-amber-500'
+                : 'w-1.5 bg-white/30 hover:bg-white/50'
             }`}
           />
         ))}
       </div>
+
+      <button
+        type='button'
+        onClick={scrollToNext}
+        aria-label='Scroll down'
+        className='flex absolute bottom-2 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-white/60 hover:text-amber-500 transition-colors'
+      >
+        <span className='font-display text-[10px] tracking-widest'>SCROLL</span>
+        <svg viewBox='0 0 24 24' fill='none' className='w-4 h-4 animate-bounce'>
+          <path
+            d='M12 4v14M6 13l6 7 6-7'
+            stroke='currentColor'
+            strokeWidth='1.8'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+          />
+        </svg>
+      </button>
     </section>
   );
 }

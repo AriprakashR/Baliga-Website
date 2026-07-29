@@ -13,7 +13,7 @@ const INDUSTRIES = [
 export default function IndustriesServed() {
   return (
     <section className='bg-mist'>
-      <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-20'>
+      <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-20 flex flex-col items-center text-center'>
         <span className='font-display text-xs tracking-widest text-amber-600'>
           WHERE WE WORK
         </span>
@@ -21,7 +21,7 @@ export default function IndustriesServed() {
           Trusted across every hazardous-area industry
         </h2>
 
-        <div className='mt-10 flex flex-wrap gap-3'>
+        <div className='mt-10 flex flex-wrap justify-center gap-3'>
           {INDUSTRIES.map(industry => (
             <span
               key={industry}

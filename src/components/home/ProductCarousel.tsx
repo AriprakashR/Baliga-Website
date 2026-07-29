@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { withBasePath } from '@/lib/basePath';
@@ -49,9 +52,11 @@ function CategoryCard({
 }
 
 export default function ProductCarousel() {
+  const [paused, setPaused] = useState(false);
+
   return (
     <section className='bg-navy-900'>
-      <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-24'>
+      <div className='max-w-(--container-page) mx-auto px-6 md:px-10 pt-24 pb-16'>
         <div className='flex items-end justify-between flex-wrap gap-6 '>
           <div>
             <span className='font-display text-xs tracking-widest text-amber-500'>
@@ -74,7 +79,7 @@ export default function ProductCarousel() {
       {/* Full-bleed marquee track — two copies of the card list run back to
           back so the infinite loop restarts on an identical frame. Hover or
           keyboard focus pauses it; prefers-reduced-motion freezes it. */}
-      <div className='relative overflow-hidden'>
+      <div className='relative overflow-hidden pt-0 pb-16'>
         <div
           aria-hidden='true'
           className='absolute inset-y-0 left-0 w-12 md:w-24 bg-linear-to-r from-navy-900 to-transparent z-10 pointer-events-none'
@@ -87,7 +92,12 @@ export default function ProductCarousel() {
         <div
           role='region'
           aria-label='Product categories'
-          className='flex w-max gap-5 px-6 md:px-10 pb-2 animate-marquee hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] motion-reduce:[animation-play-state:paused]'
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onFocus={() => setPaused(true)}
+          onBlur={() => setPaused(false)}
+          style={{ animationPlayState: paused ? 'paused' : undefined }}
+          className='flex w-max gap-5 px-6 md:px-10 pb-2 animate-marquee motion-reduce:[animation-play-state:paused]'
         >
           {PRODUCT_LINES.map(category => (
             <CategoryCard key={category.name} category={category} />
