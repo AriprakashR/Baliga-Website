@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { withBasePath } from '@/lib/basePath';
 
 type Company = { name: string; logo: string };
 type ClientGroup = { industry: string; companies: Company[] };
@@ -71,7 +72,7 @@ export default function ClientsAccordion({
                       className='flex flex-col items-center gap-3 rounded-sm border border-line bg-white p-4 text-center'
                     >
                       <img
-                        src={company.logo}
+                        src={withBasePath(company.logo)}
                         alt={company.name}
                         loading='lazy'
                         className='h-20 w-full object-contain'
