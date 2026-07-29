@@ -24,6 +24,7 @@ const COLUMNS = [
       { label: 'Events & Exhibitions', href: '/events' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Contact', href: '/contact' },
+      { label: 'Feedback', href: '/feedback' },
     ],
   },
 ];
