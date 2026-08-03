@@ -8,6 +8,7 @@ import {
   Box,
   GaugeCircle,
   Wrench,
+  Radio,
 } from 'lucide-react';
 
 export const CATEGORIES = [
@@ -23,4 +24,5 @@ export const CATEGORIES = [
   { slug: 'junction-boxes', label: 'Junction Boxes', icon: Box },
   { slug: 'flow-measurement', label: 'Flow Measurement', icon: GaugeCircle },
   { slug: 'accessories', label: 'Accessories', icon: Wrench },
+  { slug: 'communication', label: 'Communication', icon: Radio },
 ];
