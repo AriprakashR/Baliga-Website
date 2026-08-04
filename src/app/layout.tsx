@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Sora, Inter, JetBrains_Mono } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import ScrollToTopButton from '@/components/layout/ScrollToTopButton';
 import './globals.css';
 
 const display = Sora({
@@ -43,6 +44,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <ScrollToTopButton />
       </body>
     </html>
   );

@@ -63,7 +63,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className='relative flex min-h-[85vh] items-center bg-navy-900 pt-20 overflow-hidden'
+      className='relative flex flex-col min-h-[85vh] bg-navy-900 pt-20'
       onMouseEnter={pause}
       onMouseLeave={resume}
       onFocus={pause}
@@ -71,33 +71,38 @@ export default function Hero() {
       onTouchStart={pause}
       onTouchEnd={resume}
     >
-      {/* Slides — product group shots, composed with empty space on the left
-          for the text column and the product cluster on the right. Full
-          color (no duotone): these are purpose-built banners, not raw stock
-          photos, so the gradient alone is enough to keep text legible. */}
-      {PRODUCT_LINES.map((slide, i) => (
-        <Image
-          key={slide.name}
-          src={withBasePath(slide.heroImage)}
-          alt={`${slide.name} product lineup`}
-          fill
-          priority={i === 0}
-          sizes='100vw'
-          className={`object-cover object-right transition-opacity duration-1000 ease-in-out ${
-            i === activeIndex ? 'opacity-100' : 'opacity-0'
-          }`}
+      {/* Clipping lives on this wrapper (not the section) so the sticky
+          bottom bar further down keeps a clean, unclipped path to the
+          viewport for position: sticky to work against. */}
+      <div className='absolute inset-0 overflow-hidden'>
+        {/* Slides — product group shots, composed with empty space on the left
+            for the text column and the product cluster on the right. Full
+            color (no duotone): these are purpose-built banners, not raw stock
+            photos, so the gradient alone is enough to keep text legible. */}
+        {PRODUCT_LINES.map((slide, i) => (
+          <Image
+            key={slide.name}
+            src={withBasePath(slide.heroImage)}
+            alt={`${slide.name} product lineup`}
+            fill
+            priority={i === 0}
+            sizes='100vw'
+            className={`object-cover object-right transition-opacity duration-1000 ease-in-out ${
+              i === activeIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        ))}
+
+        {/* Navy gradient overlay — solid over the text column, fading out toward
+            the right so the product cluster still reads through. Keeps contrast
+            consistent regardless of which slide is active. */}
+        <div
+          aria-hidden='true'
+          className='absolute inset-0 bg-linear-to-r from-navy-950 via-navy-950/90 to-navy-950/55'
         />
-      ))}
+      </div>
 
-      {/* Navy gradient overlay — solid over the text column, fading out toward
-          the right so the product cluster still reads through. Keeps contrast
-          consistent regardless of which slide is active. */}
-      <div
-        aria-hidden='true'
-        className='absolute inset-0 bg-linear-to-r from-navy-950 via-navy-950/90 to-navy-950/55'
-      />
-
-      <div className='relative w-full max-w-(--container-page) mx-auto px-6 md:px-10 py-16'>
+      <div className='relative flex-1 flex items-center w-full max-w-(--container-page) mx-auto px-6 md:px-10 py-16'>
         {/* All slides' text stacked in the same grid cell so the block's
             height is the max of every slide — swapping slides no longer
             reflows the vertically-centered section. */}
@@ -160,45 +165,46 @@ export default function Hero() {
         <ArrowIcon />
       </button>
 
-      <div
-        role='tablist'
-        aria-label='Hero slides'
-        className='absolute bottom-14 left-1/2 -translate-x-1/2 flex items-center gap-3'
-      >
-        {PRODUCT_LINES.map((slide, i) => (
-          <button
-            key={slide.name}
-            type='button'
-            role='tab'
-            onClick={() => goTo(i)}
-            aria-label={`Show ${slide.name} slide`}
-            aria-selected={i === activeIndex}
-            className={`h-1.5 rounded-full transition-all ${
-              i === activeIndex
-                ? 'w-8 bg-amber-500'
-                : 'w-1.5 bg-white/30 hover:bg-white/50'
-            }`}
-          />
-        ))}
-      </div>
+      {/* Sticks to the viewport bottom for as long as the section is in
+          view, so it stays reachable even if the text content pushes the
+          section taller than the screen on shorter laptop displays. */}
+      <div className='sticky bottom-2 z-1 shrink-0 flex flex-col items-center gap-3 pb-2'>
+        <div role='tablist' aria-label='Hero slides' className='flex items-center gap-3'>
+          {PRODUCT_LINES.map((slide, i) => (
+            <button
+              key={slide.name}
+              type='button'
+              role='tab'
+              onClick={() => goTo(i)}
+              aria-label={`Show ${slide.name} slide`}
+              aria-selected={i === activeIndex}
+              className={`h-1.5 rounded-full transition-all ${
+                i === activeIndex
+                  ? 'w-8 bg-amber-500'
+                  : 'w-1.5 bg-white/30 hover:bg-white/50'
+              }`}
+            />
+          ))}
+        </div>
 
-      <button
-        type='button'
-        onClick={scrollToNext}
-        aria-label='Scroll down'
-        className='flex absolute bottom-2 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-white/60 hover:text-amber-500 transition-colors'
-      >
-        <span className='font-display text-[10px] tracking-widest'>SCROLL</span>
-        <svg viewBox='0 0 24 24' fill='none' className='w-4 h-4 animate-bounce'>
-          <path
-            d='M12 4v14M6 13l6 7 6-7'
-            stroke='currentColor'
-            strokeWidth='1.8'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-          />
-        </svg>
-      </button>
+        <button
+          type='button'
+          onClick={scrollToNext}
+          aria-label='Scroll down'
+          className='flex flex-col items-center gap-2 text-white/60 hover:text-amber-500 transition-colors'
+        >
+          <span className='font-display text-[10px] tracking-widest'>SCROLL</span>
+          <svg viewBox='0 0 24 24' fill='none' className='w-4 h-4 animate-bounce'>
+            <path
+              d='M12 4v14M6 13l6 7 6-7'
+              stroke='currentColor'
+              strokeWidth='1.8'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+            />
+          </svg>
+        </button>
+      </div>
     </section>
   );
 }
