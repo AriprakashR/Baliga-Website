@@ -136,7 +136,7 @@ export default function Hero() {
                   Explore {slide.name}
                 </Link>
                 <Link
-                  href='/certifications'
+                  href='/about#certifications'
                   className='font-display text-sm tracking-wide border border-white/30 hover:border-white/60 text-white px-7 py-3.5 rounded-sm transition-colors'
                 >
                   View Certifications

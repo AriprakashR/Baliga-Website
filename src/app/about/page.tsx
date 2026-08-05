@@ -3,10 +3,13 @@ import Link from 'next/link';
 import {
   ArrowRight,
   Building2,
+  CheckCircle2,
   CircuitBoard,
   ClipboardCheck,
   Cog,
   Cpu,
+  ExternalLink,
+  FileText,
   GraduationCap,
   Globe,
   HandHeart,
@@ -104,22 +107,52 @@ const QUALITY_PILLARS = [
 
 const CERTIFICATIONS = [
   {
+    id: 'atex',
     code: 'ATEX',
     name: 'ATEX Directive',
-    detail:
-      'A mandatory requirement for all equipment used in hazardous areas across European countries, in force since 1 July 2003.',
+    bg: 'bg-white',
+    image: 'https://www.baliga.com/images/atex-certification.png',
+    pdf: 'https://www.baliga.com/images/pdf/ATEX-Certification.pdf',
+    description:
+      'Initiated by the European Union, ATEX has been in force as a directive since 1 July 2003 throughout the EEC. It is a mandatory requirement for all equipment intended for use in a hazardous area within European countries.',
+    points: [
+      'Addresses the essential safety requirements for hazardous-area equipment',
+      'Uses harmonised standards as the method of conforming to those requirements',
+      'Requires technical documentation so users are informed of correct installation and use',
+    ],
   },
   {
+    id: 'iecex',
     code: 'IECEx',
     name: 'IECEx System',
-    detail:
-      'Provides global acceptance by complying with IEC standards, facilitating international trade of equipment built for explosive atmospheres.',
+    bg: 'bg-mist',
+    image: 'https://www.baliga.com/images/iecex-certification.png',
+    pdf: 'https://www.baliga.com/images/pdf/IECEX-Certification.pdf',
+    description:
+      'The IECEx System provides global acceptance for equipment built for explosive atmospheres by complying with IEC standards, reducing the need for repeat testing across markets.',
+    points: [
+      'Facilitates national compliance with Ex product requirements',
+      'Enables international trade of Ex-certified equipment',
+      'Backed by IEC standards recognised across member countries',
+    ],
   },
   {
+    id: 'iso-9001',
     code: 'ISO 9001:2015',
     name: 'Quality Management System',
-    detail:
-      'Certifies that our manufacturing is governed by documented procedures, defect checking with corrective action, and continuous improvement.',
+    bg: 'bg-white',
+    image: 'https://www.baliga.com/images/ISO9001-2015-Certification.png',
+    pdf: 'https://www.baliga.com/images/pdf/ISO9001-2015-Certification.pdf',
+    description:
+      'ISO 9001 is maintained by the International Organization for Standardization (ISO) and administered through accreditation and certification bodies, governing how our manufacturing is managed end to end.',
+    points: [
+      'Established procedures covering all key business processes',
+      'Monitoring mechanisms that ensure process effectiveness',
+      'Adequate record maintenance',
+      'Output inspection for defects, with corrective measures',
+      'Regular review of process and system effectiveness',
+      'A framework for continuous improvement',
+    ],
   },
 ];
 
@@ -426,36 +459,65 @@ export default function AboutPage() {
                 internationally recognised standards for hazardous-area
                 equipment, verified by three certifications.
               </p>
-
-              <div className='mt-10 grid gap-6 md:grid-cols-3'>
-                {CERTIFICATIONS.map(cert => (
-                  <div
-                    key={cert.code}
-                    className='rounded-sm border border-line bg-white p-6 transition-colors hover:border-amber-500'
-                  >
-                    <div className='nameplate text-navy-900'>
-                      <span className='text-sm font-medium tracking-wide'>
-                        {cert.code}
-                      </span>
-                    </div>
-                    <h3 className='mt-4 font-display text-lg text-navy-900 normal-case'>
-                      {cert.name}
-                    </h3>
-                    <p className='mt-3 font-body normal-case text-steel text-sm leading-relaxed'>
-                      {cert.detail}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <Link
-                href='/certifications'
-                className='mt-8 inline-flex items-center gap-2 font-display text-sm font-semibold text-navy-900 hover:text-amber-600'
-              >
-                View full certification details
-                <ArrowRight size={16} />
-              </Link>
             </Reveal>
+
+            <div className='mt-10 space-y-8'>
+              {CERTIFICATIONS.map(cert => (
+                <Reveal key={cert.id}>
+                  <div
+                    className={`grid md:grid-cols-2 gap-10 items-start rounded-sm border border-line p-8 ${cert.bg}`}
+                  >
+                    <div>
+                      <div className='nameplate text-navy-900'>
+                        <span className='text-sm font-medium tracking-wide'>
+                          {cert.code}
+                        </span>
+                      </div>
+                      <h3 className='mt-4 font-display text-xl font-bold text-navy-900 normal-case'>
+                        {cert.name}
+                      </h3>
+                      <p className='mt-3 font-body normal-case text-steel text-sm leading-relaxed'>
+                        {cert.description}
+                      </p>
+
+                      <a
+                        href={cert.pdf}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='group mt-6 flex items-center gap-4 rounded-sm border border-line bg-white p-4 transition-colors hover:border-amber-500'
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={cert.image}
+                          alt={`${cert.name} certificate`}
+                          className='h-16 w-16 shrink-0 rounded-sm border border-line bg-white object-contain p-1'
+                        />
+                        <span className='flex items-center gap-2 font-display text-sm font-semibold text-navy-900 group-hover:text-amber-600'>
+                          <FileText size={16} />
+                          View Certificate (PDF)
+                          <ExternalLink size={14} />
+                        </span>
+                      </a>
+                    </div>
+
+                    <ul className='space-y-3'>
+                      {cert.points.map(point => (
+                        <li
+                          key={point}
+                          className='flex items-start gap-3 rounded-sm border border-line bg-white p-4 text-sm text-ink transition-colors hover:border-amber-500'
+                        >
+                          <CheckCircle2
+                            size={16}
+                            className='mt-0.5 shrink-0 text-amber-600'
+                          />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </section>
 
           <section id='infrastructure' className='scroll-mt-28 mt-20 border-t border-line pt-20'>

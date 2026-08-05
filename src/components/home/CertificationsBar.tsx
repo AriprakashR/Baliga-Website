@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+
 const CERTIFICATIONS = [
   { code: 'ATEX', detail: 'EEC DIRECTIVE' },
   { code: 'IECEx', detail: 'GLOBAL EX STANDARD' },
@@ -20,6 +23,13 @@ export default function CertificationsBar() {
               <span className='text-xs text-steel'>{cert.detail}</span>
             </div>
           ))}
+          <Link
+            href='/about#certifications'
+            className='inline-flex items-center gap-2 font-display text-sm font-semibold text-navy-900 hover:text-amber-600'
+          >
+            View in Detail
+            <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </section>
