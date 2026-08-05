@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: 'Technical Info', href: '/technical-info' },
   { label: 'Clients', href: '/industries' },
   { label: 'Events', href: '/events' },
+  { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
 ];
 
