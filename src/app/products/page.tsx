@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import ProductCatalogView from '@/components/product/ProductCatalogView';
 
 export const metadata: Metadata = { title: 'Products' };
@@ -19,7 +20,9 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      <ProductCatalogView />
+      <Suspense fallback={null}>
+        <ProductCatalogView />
+      </Suspense>
     </>
   );
 }

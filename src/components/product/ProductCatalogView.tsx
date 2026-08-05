@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { PackageSearch } from 'lucide-react';
 import { PRODUCTS } from '@/data/products';
 import ProductFilterBar from './ProductFilterBar';
@@ -19,8 +20,13 @@ function toggleInSet(set: Set<string>, value: string): Set<string> {
 }
 
 export default function ProductCatalogView() {
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get('category');
+
   const [search, setSearch] = useState('');
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(
+    () => categoryParam,
+  );
   const [activeExZones, setActiveExZones] = useState<Set<string>>(new Set());
   const [activeIpRatings, setActiveIpRatings] = useState<Set<string>>(
     new Set(),

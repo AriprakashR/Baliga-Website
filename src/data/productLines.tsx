@@ -3,7 +3,7 @@
 export const PRODUCT_LINES = [
   {
     name: 'Explosion-Proof Lighting',
-    href: '/products/lighting',
+    href: '/products',
     image: '/products/Explosion_Proof_Lighting.jpg',
     heroImage: '/hero/explosion_proof_lighting_bg_panel.png',
     tagline: 'Engineered for the explosive environment',
@@ -29,7 +29,7 @@ export const PRODUCT_LINES = [
   },
   {
     name: 'Communication Systems',
-    href: '/products/communication',
+    href: '/products?category=communication',
     image: '/products/Communication_Systems.jpg',
     heroImage: '/hero/communication_systems_bg_panel.png',
     tagline: 'Stay connected, even in Zone 1',
@@ -50,7 +50,7 @@ export const PRODUCT_LINES = [
   },
   {
     name: 'Panels & Enclosures',
-    href: '/products/panels',
+    href: '/products?category=control-stations',
     image: '/products/Panels_&_Enclosures.jpg',
     heroImage: '/hero/panels_&_enclosures_bg_panel.png',
     tagline: 'Control panels built for extreme conditions',
@@ -66,7 +66,7 @@ export const PRODUCT_LINES = [
   },
   {
     name: 'Flow Measuring Equipment',
-    href: '/products/flow-measuring',
+    href: '/products?category=flow-measurement',
     image: '/products/Flow_Measuring_Equipment.jpg',
     heroImage: '/hero/flow_measuring_equipment_bg_panel.png',
     tagline: 'Precision measurement under pressure',
