@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import IndustryLinksMenu from './IndustryLinksMenu';
 
 const COLUMNS = [
   {
@@ -84,13 +85,20 @@ export default function Footer() {
         ))}
       </div>
 
+      <IndustryLinksMenu />
+
       <div className='border-t border-white/10'>
-        <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-6 flex flex-col sm:flex-row justify-between gap-2 font-body normal-case text-xs text-white/40'>
+        <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-6 flex flex-col sm:flex-row justify-between gap-3 font-body normal-case text-xs text-white/40'>
           <span>
             © {new Date().getFullYear()} Baliga Lighting Equipments Private
             Limited. All rights reserved.
           </span>
-          <span>Manufactured in India · Certified for global deployment</span>
+          <div className='flex items-center gap-4'>
+            <Link href='/terms' className='hover:text-white/70 transition-colors'>
+              Terms of Use
+            </Link>
+            <span>Manufactured in India · Certified for global deployment</span>
+          </div>
         </div>
       </div>
     </footer>
