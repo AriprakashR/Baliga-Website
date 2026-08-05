@@ -1,24 +1,46 @@
 // Sectors served — shown as image cards on the homepage. See
 // public/industries/README.md for the placeholder images and the
 // AI-generation prompts to replace them with real photography.
+// export const INDUSTRIES = [
+//   { name: 'Refineries', image: '/industries/refineries.svg' },
+//   {
+//     name: 'Oil Drilling & Platforms',
+//     image: '/industries/oil-drilling-platforms.svg',
+//   },
+//   {
+//     name: 'Contracting Companies',
+//     image: '/industries/contracting-companies.svg',
+//   },
+//   { name: 'Petrochemicals', image: '/industries/petrochemicals.svg' },
+//   {
+//     name: 'Fertilisers & Chemicals',
+//     image: '/industries/fertilisers-chemicals.svg',
+//   },
+//   { name: 'Pharmaceutical', image: '/industries/pharmaceutical.svg' },
+//   {
+//     name: 'Space Research & Aeronautics',
+//     image: '/industries/space-research-aeronautics.svg',
+//   },
+// ];
+
 export const INDUSTRIES = [
-  { name: 'Refineries', image: '/industries/refineries.svg' },
+  { name: 'Refineries', image: '/industries/refineries.png' },
   {
     name: 'Oil Drilling & Platforms',
-    image: '/industries/oil-drilling-platforms.svg',
+    image: '/industries/oil-drilling-platforms.png',
   },
   {
     name: 'Contracting Companies',
-    image: '/industries/contracting-companies.svg',
+    image: '/industries/contracting-companies.png',
   },
-  { name: 'Petrochemicals', image: '/industries/petrochemicals.svg' },
+  { name: 'Petrochemicals', image: '/industries/petrochemicals.png' },
   {
     name: 'Fertilisers & Chemicals',
-    image: '/industries/fertilisers-chemicals.svg',
+    image: '/industries/fertilisers-chemicals.png',
   },
-  { name: 'Pharmaceutical', image: '/industries/pharmaceutical.svg' },
+  { name: 'Pharmaceutical', image: '/industries/pharmaceutical.png' },
   {
     name: 'Space Research & Aeronautics',
-    image: '/industries/space-research-aeronautics.svg',
+    image: '/industries/space-research-aeronautics.png',
   },
 ];
