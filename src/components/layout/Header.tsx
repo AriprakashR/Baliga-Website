@@ -16,6 +16,12 @@ const NAV_LINKS = [
 export default function Header() {
   const [open, setOpen] = useState(false);
 
+  function handleNavClick(href: string) {
+    if (href === '/products') {
+      window.dispatchEvent(new Event('baliga:reset-product-catalog'));
+    }
+  }
+
   return (
     <header className='fixed top-0 inset-x-0 z-50 bg-navy-900/95 backdrop-blur border-b border-white/10'>
       <div className='max-w-(--container-page) mx-auto px-6 md:px-10 h-20 flex items-center justify-between'>
@@ -37,6 +43,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
+              onClick={() => handleNavClick(link.href)}
               className='font-display text-sm tracking-wide text-white/80 hover:text-white transition-colors'
             >
               {link.label}
@@ -88,7 +95,10 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  handleNavClick(link.href);
+                  setOpen(false);
+                }}
                 className='font-display text-base tracking-wide text-white/85 hover:text-white py-3 border-b border-white/5'
               >
                 {link.label}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { PackageSearch } from 'lucide-react';
 import { PRODUCTS } from '@/data/products';
 import ProductFilterBar from './ProductFilterBar';
@@ -22,43 +22,55 @@ export default function ProductCatalogView() {
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [activeExZones, setActiveExZones] = useState<Set<string>>(new Set());
-  const [activeIpRatings, setActiveIpRatings] = useState<Set<string>>(new Set());
+  const [activeIpRatings, setActiveIpRatings] = useState<Set<string>>(
+    new Set(),
+  );
   const [activeCerts, setActiveCerts] = useState<Set<string>>(new Set());
-  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(
+    null,
+  );
   const [quoteProductId, setQuoteProductId] = useState<string | null>(null);
 
   const categoryOptions = useMemo(
     () => Array.from(new Set(PRODUCTS.map(p => p.category))),
-    []
+    [],
   );
   const exZoneOptions = useMemo(
     () => Array.from(new Set(PRODUCTS.flatMap(p => p.exZone))).sort(),
-    []
+    [],
   );
   const ipRatingOptions = useMemo(
     () => Array.from(new Set(PRODUCTS.map(p => p.ipRating))).sort(),
-    []
+    [],
   );
   const certOptions = useMemo(
     () => Array.from(new Set(PRODUCTS.flatMap(p => p.certifications))).sort(),
-    []
+    [],
   );
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
-    return PRODUCTS.filter(p => activeCategory === null || p.category === activeCategory)
+    return PRODUCTS.filter(
+      p => activeCategory === null || p.category === activeCategory,
+    )
       .filter(
         p =>
           !q ||
           p.name.toLowerCase().includes(q) ||
           p.category.toLowerCase().includes(q) ||
-          p.description.toLowerCase().includes(q)
+          p.description.toLowerCase().includes(q),
       )
-      .filter(p => activeExZones.size === 0 || p.exZone.some(z => activeExZones.has(z)))
-      .filter(p => activeIpRatings.size === 0 || activeIpRatings.has(p.ipRating))
       .filter(
         p =>
-          activeCerts.size === 0 || p.certifications.some(c => activeCerts.has(c))
+          activeExZones.size === 0 || p.exZone.some(z => activeExZones.has(z)),
+      )
+      .filter(
+        p => activeIpRatings.size === 0 || activeIpRatings.has(p.ipRating),
+      )
+      .filter(
+        p =>
+          activeCerts.size === 0 ||
+          p.certifications.some(c => activeCerts.has(c)),
       );
   }, [search, activeCategory, activeExZones, activeIpRatings, activeCerts]);
 
@@ -77,8 +89,26 @@ export default function ProductCatalogView() {
     setActiveCerts(new Set());
   }
 
-  const selectedProduct = PRODUCTS.find(p => p.id === selectedProductId) ?? null;
+  const selectedProduct =
+    PRODUCTS.find(p => p.id === selectedProductId) ?? null;
   const quoteProduct = PRODUCTS.find(p => p.id === quoteProductId) ?? null;
+
+  useEffect(() => {
+    window.scrollTo({ top: 275, behavior: 'auto' });
+  }, [selectedProductId]);
+
+  // Clicking "Products" in the header nav while already on this page should
+  // drop back to the catalog grid rather than leaving a product detail view
+  // open — Header dispatches this event on click (see Header.tsx).
+  useEffect(() => {
+    function handleReset() {
+      setSelectedProductId(null);
+      setQuoteProductId(null);
+    }
+    window.addEventListener('baliga:reset-product-catalog', handleReset);
+    return () =>
+      window.removeEventListener('baliga:reset-product-catalog', handleReset);
+  }, []);
 
   if (selectedProduct) {
     return (
@@ -92,7 +122,10 @@ export default function ProductCatalogView() {
             />
           </div>
         </section>
-        <QuoteModal product={quoteProduct} onClose={() => setQuoteProductId(null)} />
+        <QuoteModal
+          product={quoteProduct}
+          onClose={() => setQuoteProductId(null)}
+        />
       </>
     );
   }
@@ -107,10 +140,14 @@ export default function ProductCatalogView() {
         categoryOptions={categoryOptions}
         exZoneOptions={exZoneOptions}
         activeExZones={activeExZones}
-        onToggleExZone={value => setActiveExZones(prev => toggleInSet(prev, value))}
+        onToggleExZone={value =>
+          setActiveExZones(prev => toggleInSet(prev, value))
+        }
         ipRatingOptions={ipRatingOptions}
         activeIpRatings={activeIpRatings}
-        onToggleIpRating={value => setActiveIpRatings(prev => toggleInSet(prev, value))}
+        onToggleIpRating={value =>
+          setActiveIpRatings(prev => toggleInSet(prev, value))
+        }
         certOptions={certOptions}
         activeCerts={activeCerts}
         onToggleCert={value => setActiveCerts(prev => toggleInSet(prev, value))}
@@ -138,7 +175,10 @@ export default function ProductCatalogView() {
             </div>
           ) : (
             <div className='flex flex-col items-center gap-4 py-16 text-center'>
-              <PackageSearch className='h-10 w-10 text-steel/50' strokeWidth={1.5} />
+              <PackageSearch
+                className='h-10 w-10 text-steel/50'
+                strokeWidth={1.5}
+              />
               <p className='font-display text-lg text-navy-900 normal-case'>
                 No products match your filters
               </p>

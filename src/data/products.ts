@@ -9,34 +9,34 @@
 // until higher-resolution photography is available.
 import type { CatalogProduct } from '@/types/product';
 
-const LUMINAIRE_IMG = '/products/luminaires.jpg';
-const CONTROL_GEAR_IMG = '/products/control-gear.jpg';
-const CONTROL_STATION_IMG = '/products/control-stations.jpg';
-const CONTROL_PANEL_IMG = '/products/control-panel.jpg';
-const SWITCHES_IMG = '/products/switches.jpg';
-const PLUG_SOCKETS_IMG = '/products/plug-sockets.jpg';
-const CABLE_GLANDS_IMG = '/products/cable-glands.jpg';
-const MULTIWAY_JB_IMG = '/products/multiway-jb.jpg';
-const FRP_JB_IMG = '/products/frp-jb.jpg';
-const ORIFICE_PLATE_IMG = '/products/orifice-plate.jpg';
-const VENTURI_TUBE_IMG = '/products/venturi-tube.jpg';
-const STARTERS_IMG = '/products/starters.jpg';
-const PURGING_SYSTEM_IMG = '/products/purging-system.jpg';
-const LIGHTING_JB_IMG = '/products/lighting-jb.jpg';
-const ACCESSORIES_IMG = '/products/accessories.jpg';
-const FLUORESCENT_IMG = '/products/fluorescent.jpg';
-const ELECTRICAL_OTHERS_IMG = '/products/electrical-others.jpg';
-const SPECIALS_IMG = '/products/specials.jpg';
-const COMMUNICATION_IMG = '/products/communication.jpg';
-const ORIFICE_ASSEMBLY_IMG = '/products/orifice-assembly.jpg';
-const PLATE_HOLDER_IMG = '/products/plate-holder.jpg';
-const METER_RUN_IMG = '/products/meter-run.jpg';
-const CARRIER_RING_PLATE_IMG = '/products/carrier-ring-plate.jpg';
-const MULTISTAGE_IMG = '/products/multistage.jpg';
-const FLOW_NOZZLE_IMG = '/products/flow-nozzle.jpg';
-const HASM_IMG = '/products/hasm.jpg';
-const HEATERS_IMG = '/products/heaters.jpg';
-const MONITORS_IMG = '/products/monitors.jpg';
+const LUMINAIRE_IMG = '/products/luminaires.png';
+const CONTROL_GEAR_IMG = '/products/control-gear.png';
+const CONTROL_STATION_IMG = '/products/control-stations.png';
+const CONTROL_PANEL_IMG = '/products/control-panel.png';
+const SWITCHES_IMG = '/products/switches.png';
+const PLUG_SOCKETS_IMG = '/products/plug-sockets.png';
+const CABLE_GLANDS_IMG = '/products/cable-glands.png';
+const MULTIWAY_JB_IMG = '/products/multiway-jb.png';
+const FRP_JB_IMG = '/products/frp-jb.png';
+const ORIFICE_PLATE_IMG = '/products/orifice-plate.png';
+const VENTURI_TUBE_IMG = '/products/venturi-tube.png';
+const STARTERS_IMG = '/products/starters.png';
+const PURGING_SYSTEM_IMG = '/products/purging-system.png';
+const LIGHTING_JB_IMG = '/products/lighting-jb.png';
+const ACCESSORIES_IMG = '/products/accessories.png';
+const FLUORESCENT_IMG = '/products/fluorescent.png';
+const ELECTRICAL_OTHERS_IMG = '/products/electrical-others.png';
+const SPECIALS_IMG = '/products/specials.png';
+const COMMUNICATION_IMG = '/products/communication.png';
+const ORIFICE_ASSEMBLY_IMG = '/products/orifice-assembly.png';
+const PLATE_HOLDER_IMG = '/products/plate-holder.png';
+const METER_RUN_IMG = '/products/meter-run.png';
+const CARRIER_RING_PLATE_IMG = '/products/carrier-ring-plate.png';
+const MULTISTAGE_IMG = '/products/multistage.png';
+const FLOW_NOZZLE_IMG = '/products/flow-nozzle.png';
+const HASM_IMG = '/products/hasm.png';
+const HEATERS_IMG = '/products/heaters.png';
+const MONITORS_IMG = '/products/monitors.png';
 
 export const PRODUCTS: CatalogProduct[] = [
   {
@@ -53,32 +53,11 @@ export const PRODUCTS: CatalogProduct[] = [
       'Enclosure Material': 'Die-cast aluminium, epoxy powder coated',
       'Rated Voltage': '110-270V AC, 50/60Hz',
       'Temperature Class': 'T6',
-      'Mounting': 'Ceiling / wall / pendant',
+      Mounting: 'Ceiling / wall / pendant',
     },
     exZone: ['Zone 1', 'Zone 2'],
     ipRating: 'IP66',
     certifications: ['ATEX', 'IECEx', 'CCOE/PESO'],
-    images: [LUMINAIRE_IMG],
-  },
-  {
-    id: 'lum-02',
-    slug: 'explosion-proof-bulkhead-luminaire',
-    name: 'Explosion-Proof Bulkhead Luminaire',
-    category: 'luminaires',
-    description:
-      'Compact flameproof bulkhead fitting for corridors, stairwells, and platform lighting in classified hazardous areas.',
-    shortSpecs: ['20W LED', 'Zone 1 / Zone 21', 'IP65'],
-    detailedSpecs: {
-      'Protection Type': 'Ex d IIC T5 Gb',
-      'Light Source': '20W LED, 2200 lm',
-      'Enclosure Material': 'Copper-free aluminium alloy',
-      'Rated Voltage': '85-265V AC, 50/60Hz',
-      'Temperature Class': 'T5',
-      'Mounting': 'Surface wall mount',
-    },
-    exZone: ['Zone 1', 'Zone 21'],
-    ipRating: 'IP65',
-    certifications: ['ATEX', 'BIS'],
     images: [LUMINAIRE_IMG],
   },
   {
@@ -122,26 +101,6 @@ export const PRODUCTS: CatalogProduct[] = [
     images: [CONTROL_GEAR_IMG],
   },
   {
-    id: 'cg-02',
-    slug: 'flameproof-power-distribution-unit',
-    name: 'Flameproof Power Distribution Unit',
-    category: 'control-gear',
-    description:
-      'Distribution control gear for splitting and protecting power feeds to downstream flameproof lighting and small power circuits.',
-    shortSpecs: ['4-way', 'Zone 1 / Zone 2', 'IP66'],
-    detailedSpecs: {
-      'Protection Type': 'Ex d IIC T6 Gb',
-      'Enclosure Material': 'Cast aluminium',
-      'Rated Current': '32A per way',
-      'Temperature Class': 'T6',
-      'Cable Entries': '4 x M25, 1 x M32',
-    },
-    exZone: ['Zone 1', 'Zone 2'],
-    ipRating: 'IP66',
-    certifications: ['ATEX', 'IECEx'],
-    images: [CONTROL_GEAR_IMG],
-  },
-  {
     id: 'sw-01',
     slug: 'flameproof-isolator-switch',
     name: 'Flameproof Isolator Switch',
@@ -153,7 +112,7 @@ export const PRODUCTS: CatalogProduct[] = [
       'Protection Type': 'Ex d IIC T6 Gb',
       'Enclosure Material': 'Cast aluminium',
       'Rated Current': '20A / 32A',
-      'Poles': '3P + N',
+      Poles: '3P + N',
       'Temperature Class': 'T6',
     },
     exZone: ['Zone 1', 'Zone 2'],
@@ -173,7 +132,7 @@ export const PRODUCTS: CatalogProduct[] = [
       'Protection Type': 'Ex d IIC T6 Gb',
       'Rated Current': '16A',
       'Rated Voltage': '415V AC',
-      'Interlocking': 'Mechanical, switch-socket',
+      Interlocking: 'Mechanical, switch-socket',
       'Temperature Class': 'T6',
     },
     exZone: ['Zone 1'],
@@ -192,7 +151,7 @@ export const PRODUCTS: CatalogProduct[] = [
     detailedSpecs: {
       'Protection Type': 'Ex d IIC T6 Gb',
       'Enclosure Material': 'Cast aluminium',
-      'Configuration': 'Start / Stop / E-Stop',
+      Configuration: 'Start / Stop / E-Stop',
       'Contact Rating': '10A, 415V AC',
       'Temperature Class': 'T6',
     },
@@ -212,7 +171,7 @@ export const PRODUCTS: CatalogProduct[] = [
     detailedSpecs: {
       'Protection Type': 'Ex d IIC T5 Gb',
       'Enclosure Material': 'Cast aluminium',
-      'Windows': 'Toughened glass, up to 6',
+      Windows: 'Toughened glass, up to 6',
       'Temperature Class': 'T5',
       'Cable Entries': 'Customer specified',
     },
@@ -232,7 +191,7 @@ export const PRODUCTS: CatalogProduct[] = [
     detailedSpecs: {
       'Protection Type': 'Ex d IIC T6 Gb',
       'Enclosure Material': 'Cast aluminium',
-      'Display': 'Digital, backlit',
+      Display: 'Digital, backlit',
       'Temperature Class': 'T6',
       'Cable Entries': 'Customer specified',
     },
@@ -251,34 +210,14 @@ export const PRODUCTS: CatalogProduct[] = [
     shortSpecs: ['Nickel-plated brass', 'Zone 1 / Zone 2', 'IP66'],
     detailedSpecs: {
       'Protection Type': 'Ex d / Ex e IIC Gb',
-      'Material': 'Nickel-plated brass',
+      Material: 'Nickel-plated brass',
       'Cable Type': 'Armoured, single wire',
-      'Thread': 'Metric / NPT on request',
+      Thread: 'Metric / NPT on request',
       'Temperature Class': 'T6',
     },
     exZone: ['Zone 1', 'Zone 2'],
     ipRating: 'IP66',
     certifications: ['ATEX', 'IECEx'],
-    images: [CABLE_GLANDS_IMG],
-  },
-  {
-    id: 'cgl-02',
-    slug: 'unarmoured-cable-gland',
-    name: 'Single Compression Cable Gland',
-    category: 'cable-glands',
-    description:
-      'Single compression cable gland for unarmoured cable entry into flameproof and increased-safety enclosures.',
-    shortSpecs: ['Nickel-plated brass', 'Zone 1 / Zone 21', 'IP66'],
-    detailedSpecs: {
-      'Protection Type': 'Ex d / Ex e IIC Gb',
-      'Material': 'Nickel-plated brass',
-      'Cable Type': 'Unarmoured, single wire',
-      'Thread': 'Metric / NPT on request',
-      'Temperature Class': 'T6',
-    },
-    exZone: ['Zone 1', 'Zone 21'],
-    ipRating: 'IP66',
-    certifications: ['IECEx', 'BIS'],
     images: [CABLE_GLANDS_IMG],
   },
   {
@@ -292,7 +231,7 @@ export const PRODUCTS: CatalogProduct[] = [
     detailedSpecs: {
       'Protection Type': 'Ex d IIC T6 Gb',
       'Enclosure Material': 'Cast aluminium',
-      'Terminals': 'Up to 24-way, 4/6/10 sq.mm',
+      Terminals: 'Up to 24-way, 4/6/10 sq.mm',
       'Cable Entries': 'Customer specified',
       'Temperature Class': 'T6',
     },
@@ -312,7 +251,7 @@ export const PRODUCTS: CatalogProduct[] = [
     detailedSpecs: {
       'Protection Type': 'Ex e IIC T6 Gb',
       'Enclosure Material': 'Fibre-reinforced polyester (FRP)',
-      'Terminals': 'Up to 12-way',
+      Terminals: 'Up to 12-way',
       'Cable Entries': 'Customer specified',
       'Temperature Class': 'T6',
     },
@@ -332,7 +271,7 @@ export const PRODUCTS: CatalogProduct[] = [
     detailedSpecs: {
       'Protection Type': 'Ex d IIC T6 Gb',
       'Enclosure Material': 'Cast aluminium',
-      'Terminals': 'Up to 6-way, 4 sq.mm',
+      Terminals: 'Up to 6-way, 4 sq.mm',
       'Cable Entries': '2-4 x M20/M25',
       'Temperature Class': 'T6',
     },
@@ -350,8 +289,8 @@ export const PRODUCTS: CatalogProduct[] = [
       'Concentric orifice plate assembly for differential-pressure flow measurement of liquids and gases in process piping.',
     shortSpecs: ['Concentric bore', 'Zone 1 / Zone 2', 'IP67'],
     detailedSpecs: {
-      'Type': 'Concentric orifice plate',
-      'Material': 'Stainless steel 316',
+      Type: 'Concentric orifice plate',
+      Material: 'Stainless steel 316',
       'Line Size': '2" - 24" (custom on request)',
       'Standard Reference': 'ISO 5167',
       'Pressure Rating': 'Up to ANSI 600#',
@@ -370,8 +309,8 @@ export const PRODUCTS: CatalogProduct[] = [
       'Precision-machined venturi tube for low permanent-pressure-loss flow measurement in high-flow process lines.',
     shortSpecs: ['Low pressure loss', 'Zone 1 / Zone 2', 'IP67'],
     detailedSpecs: {
-      'Type': 'Classical venturi tube',
-      'Material': 'Stainless steel 316',
+      Type: 'Classical venturi tube',
+      Material: 'Stainless steel 316',
       'Line Size': '3" - 36" (custom on request)',
       'Standard Reference': 'ISO 5167',
       'Pressure Rating': 'Up to ANSI 600#',
@@ -390,8 +329,8 @@ export const PRODUCTS: CatalogProduct[] = [
       'Complete orifice plate assembly with carrier ring for straightforward installation between pipe flanges.',
     shortSpecs: ['Flange-mounted', 'Zone 1 / Zone 2', 'IP67'],
     detailedSpecs: {
-      'Type': 'Orifice plate assembly',
-      'Material': 'Stainless steel 316',
+      Type: 'Orifice plate assembly',
+      Material: 'Stainless steel 316',
       'Line Size': '2" - 24" (custom on request)',
       'Standard Reference': 'ISO 5167',
     },
@@ -409,8 +348,8 @@ export const PRODUCTS: CatalogProduct[] = [
       'Flanged plate holder for mounting and aligning orifice plates within the process pipeline.',
     shortSpecs: ['Flanged design', 'Zone 1 / Zone 2', 'IP67'],
     detailedSpecs: {
-      'Type': 'Orifice plate holder',
-      'Material': 'Stainless steel / carbon steel',
+      Type: 'Orifice plate holder',
+      Material: 'Stainless steel / carbon steel',
       'Line Size': '2" - 24" (custom on request)',
       'Pressure Rating': 'Up to ANSI 600#',
     },
@@ -428,8 +367,8 @@ export const PRODUCTS: CatalogProduct[] = [
       'Pre-fabricated meter run spool with integrated orifice fitting for accurate, repeatable flow measurement.',
     shortSpecs: ['Pre-fabricated spool', 'Zone 1 / Zone 2', 'IP67'],
     detailedSpecs: {
-      'Type': 'Meter run',
-      'Material': 'Carbon steel / stainless steel',
+      Type: 'Meter run',
+      Material: 'Carbon steel / stainless steel',
       'Standard Reference': 'ISO 5167',
       'Pressure Rating': 'Up to ANSI 600#',
     },
@@ -447,8 +386,8 @@ export const PRODUCTS: CatalogProduct[] = [
       'Carrier ring plate for supporting and centring orifice plates at pipeline flange joints.',
     shortSpecs: ['Flange-centring ring', 'Zone 1 / Zone 2', 'IP67'],
     detailedSpecs: {
-      'Type': 'Carrier ring plate',
-      'Material': 'Stainless steel 316',
+      Type: 'Carrier ring plate',
+      Material: 'Stainless steel 316',
       'Line Size': '2" - 24" (custom on request)',
     },
     exZone: ['Zone 1', 'Zone 2'],
@@ -465,8 +404,8 @@ export const PRODUCTS: CatalogProduct[] = [
       'Multistage orifice assembly for controlled pressure reduction across several stages in high-differential process lines.',
     shortSpecs: ['Multi-stage reduction', 'Zone 1 / Zone 2', 'IP67'],
     detailedSpecs: {
-      'Type': 'Multistage orifice assembly',
-      'Material': 'Stainless steel 316',
+      Type: 'Multistage orifice assembly',
+      Material: 'Stainless steel 316',
       'Standard Reference': 'ISO 5167',
       'Pressure Rating': 'Up to ANSI 900#',
     },
@@ -484,8 +423,8 @@ export const PRODUCTS: CatalogProduct[] = [
       'Precision flow nozzle for high-velocity flow measurement where low permanent pressure loss is required.',
     shortSpecs: ['High-velocity flow', 'Zone 1 / Zone 2', 'IP67'],
     detailedSpecs: {
-      'Type': 'Flow nozzle',
-      'Material': 'Stainless steel 316',
+      Type: 'Flow nozzle',
+      Material: 'Stainless steel 316',
       'Line Size': '2" - 24" (custom on request)',
       'Standard Reference': 'ISO 5167',
     },
@@ -525,7 +464,7 @@ export const PRODUCTS: CatalogProduct[] = [
     detailedSpecs: {
       'Protection Type': 'Ex p IIC T4 Gb',
       'Purge Medium': 'Instrument air / inert gas',
-      'Monitoring': 'Pressure & flow interlock',
+      Monitoring: 'Pressure & flow interlock',
       'Enclosure Material': 'Stainless steel',
       'Temperature Class': 'T4',
     },
@@ -561,9 +500,9 @@ export const PRODUCTS: CatalogProduct[] = [
       'Hot air sealing machine used to heat-seal cable and conduit entries as part of hazardous-area installation work.',
     shortSpecs: ['Portable unit', 'Site installation tool', 'IP54'],
     detailedSpecs: {
-      'Type': 'Hot air sealing machine',
+      Type: 'Hot air sealing machine',
       'Power Supply': '230V AC, single phase',
-      'Application': 'Cable/conduit entry sealing',
+      Application: 'Cable/conduit entry sealing',
     },
     exZone: [],
     ipRating: 'IP54',
@@ -636,7 +575,7 @@ export const PRODUCTS: CatalogProduct[] = [
     detailedSpecs: {
       'Protection Type': 'Ex d IIC T6 Gb',
       'Enclosure Material': 'Cast aluminium',
-      'Function': 'Auto-dial / PA handset',
+      Function: 'Auto-dial / PA handset',
       'Temperature Class': 'T6',
     },
     exZone: ['Zone 1', 'Zone 2'],
