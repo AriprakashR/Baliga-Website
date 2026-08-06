@@ -12,7 +12,7 @@ export default function CertificationsBar() {
     <section className='bg-mist border-b border-line'>
       <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-8'>
         <div className='flex flex-wrap items-center justify-center text-center gap-4 md:gap-6'>
-          <span className='font-display text-xs tracking-widest text-steel'>
+          <span className='max-sm:basis-full font-display text-xs tracking-widest text-steel'>
             CERTIFIED TO
           </span>
           {CERTIFICATIONS.map(cert => (
@@ -25,7 +25,7 @@ export default function CertificationsBar() {
           ))}
           <Link
             href='/about#certifications'
-            className='inline-flex items-center gap-2 font-display text-sm font-semibold text-navy-900 hover:text-amber-600'
+            className='max-lg:basis-full max-lg:justify-center max-lg:mt-2 inline-flex items-center gap-2 font-display text-sm font-semibold text-navy-900 hover:text-amber-600'
           >
             View in Detail
             <ArrowRight size={16} />

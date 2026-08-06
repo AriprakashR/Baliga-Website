@@ -28,23 +28,26 @@ export default function Header() {
         <Link
           href='/'
           className='flex items-center gap-3'
-          onClick={() => setOpen(false)}
+          onClick={() => {
+            setOpen(false);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
         >
           <span className='font-display text-2xl font-bold text-white tracking-wide'>
             BALIGA
           </span>
-          <span className='hidden sm:inline-block font-mono text-[11px] text-amber-500 border border-amber-500/40 rounded-sm px-2 py-0.5 tracking-widest'>
+          <span className='inline-block font-mono text-[11px] text-amber-500 border border-amber-500/40 rounded-sm px-2 py-0.5 tracking-widest'>
             EST. 1960
           </span>
         </Link>
 
-        <nav className='hidden lg:flex items-center gap-8'>
+        <nav className='hidden xl:flex items-center gap-6'>
           {NAV_LINKS.map(link => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => handleNavClick(link.href)}
-              className='font-display text-sm tracking-wide text-white/80 hover:text-white transition-colors'
+              className='font-display text-sm tracking-wide text-white/80 hover:text-white transition-colors whitespace-nowrap'
             >
               {link.label}
             </Link>
@@ -54,7 +57,7 @@ export default function Header() {
         <div className='flex items-center gap-4'>
           <Link
             href='/contact'
-            className='hidden sm:inline-block font-display text-sm tracking-wide bg-amber-500 hover:bg-amber-600 text-navy-950 px-5 py-2.5 rounded-sm transition-colors'
+            className='hidden sm:inline-block font-display text-sm tracking-wide bg-amber-500 hover:bg-amber-600 text-navy-950 px-5 py-2.5 rounded-sm transition-colors whitespace-nowrap'
           >
             Get a Quote
           </Link>
@@ -64,7 +67,7 @@ export default function Header() {
             onClick={() => setOpen(v => !v)}
             aria-expanded={open}
             aria-label={open ? 'Close menu' : 'Open menu'}
-            className='lg:hidden text-white p-2 -mr-2'
+            className='xl:hidden text-white p-2 -mr-2'
           >
             <svg viewBox='0 0 24 24' fill='none' className='w-6 h-6'>
               {open ? (
@@ -87,9 +90,9 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu panel — shown below the lg breakpoint when toggled */}
+      {/* Mobile menu panel — shown below the xl breakpoint when toggled */}
       {open && (
-        <div className='lg:hidden border-t border-white/10 bg-navy-900'>
+        <div className='xl:hidden border-t border-white/10 bg-navy-900'>
           <nav className='max-w-(--container-page) mx-auto px-6 py-6 flex flex-col gap-1'>
             {NAV_LINKS.map(link => (
               <Link
@@ -107,7 +110,7 @@ export default function Header() {
             <Link
               href='/contact'
               onClick={() => setOpen(false)}
-              className='mt-4 font-display text-sm tracking-wide text-center bg-amber-500 hover:bg-amber-600 text-navy-950 px-5 py-3 rounded-sm transition-colors'
+              className='sm:hidden mt-4 font-display text-sm tracking-wide text-center bg-amber-500 hover:bg-amber-600 text-navy-950 px-5 py-3 rounded-sm transition-colors'
             >
               Get a Quote
             </Link>

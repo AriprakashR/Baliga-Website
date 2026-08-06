@@ -47,12 +47,14 @@
 /* ---- Base element defaults -------------------------------------------- */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   font-family: var(--font-body);
   color: var(--color-ink);
   background: #ffffff;
+  overflow-x: hidden;
 }
 
 h1,

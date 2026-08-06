@@ -7,6 +7,7 @@ import { withBasePath } from '@/lib/basePath';
 import { PRODUCT_LINES } from '@/data/productLines';
 
 const AUTOPLAY_MS = 5500;
+const SWIPE_THRESHOLD_PX = 40;
 
 function ArrowIcon({ flipped }: { flipped?: boolean }) {
   return (
@@ -30,6 +31,7 @@ export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
   const pausedRef = useRef(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
   const slideCount = PRODUCT_LINES.length;
 
   useEffect(() => {
@@ -54,6 +56,28 @@ export default function Hero() {
     pausedRef.current = false;
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    pause();
+    const touch = e.touches[0];
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    resume();
+    const start = touchStartRef.current;
+    touchStartRef.current = null;
+    if (!start) return;
+
+    const touch = e.changedTouches[0];
+    const deltaX = touch.clientX - start.x;
+    const deltaY = touch.clientY - start.y;
+
+    if (Math.abs(deltaX) > SWIPE_THRESHOLD_PX && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX < 0) next();
+      else prev();
+    }
+  };
+
   const scrollToNext = () => {
     sectionRef.current?.nextElementSibling?.scrollIntoView({
       behavior: 'smooth',
@@ -68,8 +92,8 @@ export default function Hero() {
       onMouseLeave={resume}
       onFocus={pause}
       onBlur={resume}
-      onTouchStart={pause}
-      onTouchEnd={resume}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       {/* Clipping lives on this wrapper (not the section) so the sticky
           bottom bar further down keeps a clean, unclipped path to the
@@ -106,7 +130,7 @@ export default function Hero() {
         {/* All slides' text stacked in the same grid cell so the block's
             height is the max of every slide — swapping slides no longer
             reflows the vertically-centered section. */}
-        <div className='grid max-w-3xl'>
+        <div className='grid w-full max-w-3xl'>
           {PRODUCT_LINES.map((slide, i) => (
             <div
               key={slide.name}
