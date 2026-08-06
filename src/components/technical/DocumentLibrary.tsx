@@ -1,5 +1,6 @@
-import { ExternalLink, FileDown } from 'lucide-react';
+import { FileDown } from 'lucide-react';
 import { DOCUMENT_LIBRARY } from '@/data/technicalInfo';
+import { withBasePath } from '@/lib/basePath';
 
 export default function DocumentLibrary() {
   return (
@@ -7,7 +8,7 @@ export default function DocumentLibrary() {
       {DOCUMENT_LIBRARY.map(doc => (
         <a
           key={doc.id}
-          href={doc.href}
+          href={withBasePath(doc.href)}
           target='_blank'
           rel='noopener noreferrer'
           className='group flex flex-col rounded-sm border border-line bg-white p-6 transition-colors hover:border-amber-500'
@@ -21,7 +22,7 @@ export default function DocumentLibrary() {
           </p>
           <span className='mt-4 flex items-center gap-2 font-display text-xs tracking-widest text-navy-900 group-hover:text-amber-600 transition-colors'>
             DOWNLOAD PDF
-            <ExternalLink className='h-3.5 w-3.5' />
+            <FileDown className='h-3.5 w-3.5' />
           </span>
         </a>
       ))}
