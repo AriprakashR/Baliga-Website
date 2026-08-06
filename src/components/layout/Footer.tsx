@@ -5,10 +5,16 @@ const COLUMNS = [
   {
     heading: 'Products',
     links: [
-      { label: 'Lighting', href: '/products/lighting' },
-      { label: 'Communication Systems', href: '/products/communication' },
-      { label: 'Panels', href: '/products/panels' },
-      { label: 'Flow Measuring', href: '/products/flow-measuring' },
+      { label: 'Lighting', href: '/products' },
+      {
+        label: 'Communication Systems',
+        href: '/products?category=communication',
+      },
+      { label: 'Panels', href: '/products?category=control-stations' },
+      {
+        label: 'Flow Measuring',
+        href: '/products?category=flow-measurement',
+      },
     ],
   },
   {
