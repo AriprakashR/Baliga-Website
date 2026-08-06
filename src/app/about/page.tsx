@@ -111,8 +111,8 @@ const CERTIFICATIONS = [
     code: 'ATEX',
     name: 'ATEX Directive',
     bg: 'bg-white',
-    image: 'https://www.baliga.com/images/atex-certification.png',
-    pdf: 'https://www.baliga.com/images/pdf/ATEX-Certification.pdf',
+    image: '/certifications/atex-certification.png',
+    pdf: '/certifications/ATEX-Certification.pdf',
     description:
       'Initiated by the European Union, ATEX has been in force as a directive since 1 July 2003 throughout the EEC. It is a mandatory requirement for all equipment intended for use in a hazardous area within European countries.',
     points: [
@@ -126,8 +126,8 @@ const CERTIFICATIONS = [
     code: 'IECEx',
     name: 'IECEx System',
     bg: 'bg-mist',
-    image: 'https://www.baliga.com/images/iecex-certification.png',
-    pdf: 'https://www.baliga.com/images/pdf/IECEX-Certification.pdf',
+    image: '/certifications/iecex-certification.png',
+    pdf: '/certifications/IECEX-Certification.pdf',
     description:
       'The IECEx System provides global acceptance for equipment built for explosive atmospheres by complying with IEC standards, reducing the need for repeat testing across markets.',
     points: [
@@ -141,8 +141,8 @@ const CERTIFICATIONS = [
     code: 'ISO 9001:2015',
     name: 'Quality Management System',
     bg: 'bg-white',
-    image: 'https://www.baliga.com/images/ISO9001-2015-Certification.png',
-    pdf: 'https://www.baliga.com/images/pdf/ISO9001-2015-Certification.pdf',
+    image: '/certifications/iso-9001-2015-certification.png',
+    pdf: '/certifications/ISO9001-2015-Certification.pdf',
     description:
       'ISO 9001 is maintained by the International Organization for Standardization (ISO) and administered through accreditation and certification bodies, governing how our manufacturing is managed end to end.',
     points: [
