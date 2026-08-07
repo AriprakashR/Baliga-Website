@@ -42,8 +42,8 @@ const STEPS: RoadmapStep[] = [
 
 const PROFILE_STATS = [
   { value: '1960', label: 'Founded by Mr. U.N. Baliga' },
-  { value: '4,200 m²', label: 'Chennai manufacturing facility' },
-  { value: '25,000 m²', label: 'Total plot area' },
+  { value: '4,200', unit: 'm²', label: 'Chennai manufacturing facility' },
+  { value: '25,000', unit: 'm²', label: 'Total plot area' },
   { value: '4', label: 'Branch & agent locations' },
 ];
 
@@ -164,7 +164,11 @@ const INFRA_LOCATIONS = [
 ];
 
 const INFRA_STATS = [
-  { value: '660 m²', label: 'Warehouse, with modern material handling' },
+  {
+    value: '660',
+    unit: 'm²',
+    label: 'Warehouse, with modern material handling',
+  },
   { value: '5', label: 'Dedicated manufacturing divisions' },
 ];
 
@@ -219,7 +223,7 @@ export default function AboutPage() {
         <AboutRoadmap steps={STEPS} />
 
         <div className='min-w-0 flex-1'>
-          <section id='profile' className='scroll-mt-28'>
+          <section id='profile' className='scroll-mt-40 lg:scroll-mt-28'>
             <div className='grid md:grid-cols-2 gap-16 items-start'>
               <Reveal>
                 <span className='font-display text-xs tracking-widest text-amber-600'>
@@ -276,6 +280,11 @@ export default function AboutPage() {
                     >
                       <span className='font-mono text-2xl md:text-3xl font-semibold'>
                         {stat.value}
+                        {stat.unit && (
+                          <span className='ml-1 text-sm md:text-base font-normal text-steel'>
+                            {stat.unit}
+                          </span>
+                        )}
                       </span>
                       <span className='text-xs text-steel normal-case tracking-normal mt-1'>
                         {stat.label}
@@ -318,7 +327,8 @@ export default function AboutPage() {
             </div>
           </section>
 
-          <section id='philosophy' className='scroll-mt-28 mt-20 border-t border-line pt-20'>
+          <div className='mt-20 border-t border-line pt-20' />
+          <section id='philosophy' className='scroll-mt-40 lg:scroll-mt-28'>
             <div className='grid md:grid-cols-2 gap-16 items-start'>
               <Reveal>
                 <span className='font-display text-xs tracking-widest text-amber-600'>
@@ -382,7 +392,8 @@ export default function AboutPage() {
             </div>
           </section>
 
-          <section id='quality' className='scroll-mt-28 mt-20 border-t border-line pt-20'>
+          <div className='mt-20 border-t border-line pt-20' />
+          <section id='quality' className='scroll-mt-40 lg:scroll-mt-28'>
             <div className='grid md:grid-cols-2 gap-16 items-start'>
               <Reveal>
                 <span className='font-display text-xs tracking-widest text-amber-600'>
@@ -446,7 +457,8 @@ export default function AboutPage() {
             </div>
           </section>
 
-          <section id='certifications' className='scroll-mt-28 mt-20 border-t border-line pt-20'>
+          <div className='mt-20 border-t border-line pt-20' />
+          <section id='certifications' className='scroll-mt-40 lg:scroll-mt-28'>
             <Reveal>
               <span className='font-display text-xs tracking-widest text-amber-600'>
                 CERTIFICATIONS &amp; ACCREDITATIONS
@@ -520,7 +532,8 @@ export default function AboutPage() {
             </div>
           </section>
 
-          <section id='infrastructure' className='scroll-mt-28 mt-20 border-t border-line pt-20'>
+          <div className='mt-20 border-t border-line pt-20' />
+          <section id='infrastructure' className='scroll-mt-40 lg:scroll-mt-28'>
             <div className='grid md:grid-cols-2 gap-16 items-start'>
               <Reveal>
                 <span className='font-display text-xs tracking-widest text-amber-600'>
@@ -600,6 +613,11 @@ export default function AboutPage() {
                     >
                       <span className='font-mono text-2xl md:text-3xl font-semibold'>
                         {stat.value}
+                        {stat.unit && (
+                          <span className='ml-1 text-sm md:text-base font-normal text-steel'>
+                            {stat.unit}
+                          </span>
+                        )}
                       </span>
                       <span className='text-xs text-steel normal-case tracking-normal mt-1'>
                         {stat.label}

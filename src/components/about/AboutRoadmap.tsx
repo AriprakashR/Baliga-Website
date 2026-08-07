@@ -41,10 +41,41 @@ export function AboutRoadmap({ steps }: { steps: RoadmapStep[] }) {
   const activeIndex = steps.findIndex(s => s.id === activeId);
 
   return (
-    <nav
-      aria-label='About Baliga sections'
-      className='hidden shrink-0 lg:block lg:sticky lg:top-28 lg:w-56'
-    >
+    <>
+      <nav
+        aria-label='About Baliga sections'
+        className='lg:hidden sticky top-20 z-30 -mx-6 border-b border-line bg-white/95 px-6 py-3 backdrop-blur overflow-x-auto md:-mx-10 md:px-10'
+      >
+        <div className='flex w-max gap-2'>
+          {steps.map(step => {
+            const isActive = step.id === activeId;
+            const Node = step.available ? 'a' : 'span';
+
+            return (
+              <Node
+                key={step.id}
+                {...(step.available ? { href: `#${step.id}` } : {})}
+                aria-current={isActive ? 'true' : undefined}
+                className={[
+                  'whitespace-nowrap rounded-sm border px-3.5 py-2 font-display text-xs tracking-widest transition-colors',
+                  isActive
+                    ? 'border-amber-500 bg-amber-500 text-navy-950'
+                    : step.available
+                      ? 'border-line text-steel hover:border-amber-500 hover:text-navy-900'
+                      : 'border-line text-steel/50',
+                ].join(' ')}
+              >
+                {step.label.toUpperCase()}
+              </Node>
+            );
+          })}
+        </div>
+      </nav>
+
+      <nav
+        aria-label='About Baliga sections'
+        className='hidden shrink-0 lg:block lg:sticky lg:top-28 lg:w-56'
+      >
       <ol className='relative flex flex-col gap-8'>
         {/* Track + progress line, running through the center of each node */}
         <div className='absolute inset-y-0 left-4 w-px bg-line' />
@@ -104,6 +135,7 @@ export function AboutRoadmap({ steps }: { steps: RoadmapStep[] }) {
           );
         })}
       </ol>
-    </nav>
+      </nav>
+    </>
   );
 }

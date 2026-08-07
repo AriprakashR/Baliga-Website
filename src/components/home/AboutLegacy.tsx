@@ -1,5 +1,5 @@
 const STATS = [
-  { value: '1960', label: 'Founded' },
+  { value: '1960', label: 'Foundeds' },
   { value: '65+', label: 'Years in hazardous-area engineering' },
   { value: '4', label: 'Core product lines' },
   { value: '3', label: 'International certifications held' },
