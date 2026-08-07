@@ -137,7 +137,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className='bg-mist'>
+      <section id='enquiry' className='scroll-mt-28 bg-mist'>
         <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-16'>
           <div className='max-w-2xl mx-auto'>
             <ContactForm />

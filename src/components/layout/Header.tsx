@@ -24,7 +24,7 @@ export default function Header() {
 
   return (
     <header className='fixed top-0 inset-x-0 z-50 bg-navy-900/95 backdrop-blur border-b border-white/10'>
-      <div className='max-w-(--container-page) mx-auto px-6 md:px-10 h-20 flex items-center justify-between'>
+      <div className='max-w-(--container-page) mx-auto px-6 md:px-10 lg:px-6 xl:px-10 h-20 flex items-center justify-between'>
         <Link
           href='/'
           className='flex items-center gap-3'
@@ -41,7 +41,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className='hidden xl:flex items-center gap-6'>
+        <nav className='hidden lg:flex items-center gap-4 xl:gap-6'>
           {NAV_LINKS.map(link => (
             <Link
               key={link.href}
@@ -56,8 +56,8 @@ export default function Header() {
 
         <div className='flex items-center gap-4'>
           <Link
-            href='/contact'
-            className='hidden sm:inline-block font-display text-sm tracking-wide bg-amber-500 hover:bg-amber-600 text-navy-950 px-5 py-2.5 rounded-sm transition-colors whitespace-nowrap'
+            href='/contact#enquiry'
+            className='hidden sm:inline-block font-display text-sm tracking-wide bg-amber-500 hover:bg-amber-600 text-navy-950 px-4 lg:px-4 xl:px-5 py-2.5 rounded-sm transition-colors whitespace-nowrap'
           >
             Get a Quote
           </Link>
@@ -67,7 +67,7 @@ export default function Header() {
             onClick={() => setOpen(v => !v)}
             aria-expanded={open}
             aria-label={open ? 'Close menu' : 'Open menu'}
-            className='xl:hidden text-white p-2 -mr-2'
+            className='lg:hidden text-white p-2 -mr-2'
           >
             <svg viewBox='0 0 24 24' fill='none' className='w-6 h-6'>
               {open ? (
@@ -90,10 +90,19 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu panel — shown below the xl breakpoint when toggled */}
-      {open && (
-        <div className='xl:hidden border-t border-white/10 bg-navy-900'>
-          <nav className='max-w-(--container-page) mx-auto px-6 py-6 flex flex-col gap-1'>
+      {/* Mobile menu panel — shown below the lg breakpoint when toggled.
+          Always mounted so max-height can transition instead of the panel
+          just popping in/out. Uses max-height (not grid-rows) since this
+          sits inside a position:fixed header, where the grid-rows-[0fr]/
+          [1fr] auto-height trick doesn't reliably size to content. */}
+      <div
+        aria-hidden={!open}
+        className={`lg:hidden overflow-hidden bg-navy-900 transition-[max-height] duration-300 ease-in-out ${
+          open ? 'max-h-[32rem]' : 'max-h-0'
+        }`}
+      >
+        <div className='border-t border-white/10'>
+          <nav className='max-w-(--container-page) mx-auto px-6 pb-4 sm:pb-0 flex flex-col items-center text-center gap-1'>
             {NAV_LINKS.map(link => (
               <Link
                 key={link.href}
@@ -102,21 +111,21 @@ export default function Header() {
                   handleNavClick(link.href);
                   setOpen(false);
                 }}
-                className='font-display text-base tracking-wide text-white/85 hover:text-white py-3 border-b border-white/5'
+                className='font-display text-base tracking-wide text-white/85 hover:text-white py-3 border-b border-white/5 w-full'
               >
                 {link.label}
               </Link>
             ))}
             <Link
-              href='/contact'
+              href='/contact#enquiry'
               onClick={() => setOpen(false)}
-              className='sm:hidden mt-4 font-display text-sm tracking-wide text-center bg-amber-500 hover:bg-amber-600 text-navy-950 px-5 py-3 rounded-sm transition-colors'
+              className='sm:hidden mt-4 font-display text-sm tracking-wide text-center bg-amber-500 hover:bg-amber-600 text-navy-950 px-5 py-3 rounded-sm transition-colors w-full'
             >
               Get a Quote
             </Link>
           </nav>
         </div>
-      )}
+      </div>
     </header>
   );
 }
