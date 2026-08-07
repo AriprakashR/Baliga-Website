@@ -72,7 +72,10 @@ export default function Hero() {
     const deltaX = touch.clientX - start.x;
     const deltaY = touch.clientY - start.y;
 
-    if (Math.abs(deltaX) > SWIPE_THRESHOLD_PX && Math.abs(deltaX) > Math.abs(deltaY)) {
+    if (
+      Math.abs(deltaX) > SWIPE_THRESHOLD_PX &&
+      Math.abs(deltaX) > Math.abs(deltaY)
+    ) {
       if (deltaX < 0) next();
       else prev();
     }
@@ -172,11 +175,15 @@ export default function Hero() {
       </div>
 
       {/* Manual controls */}
+      {/* h-9/w-9 between md and xl (768-1279px, i.e. Tab and Laptop-1024)
+          only — at those widths the headline can wrap to 2-3 lines and the
+          full-size button reads as overlapping it; xl+ has more horizontal
+          room for the headline so the original larger size is fine there. */}
       <button
         type='button'
         onClick={prev}
         aria-label='Previous slide'
-        className='hidden md:flex absolute left-4 md:left-6 top-1/2 -translate-y-1/2 h-12 w-12 items-center justify-center rounded-full border border-white/25 bg-navy-950/20 text-white backdrop-blur-sm hover:border-amber-500/70 hover:text-amber-500 transition-colors'
+        className='hidden md:flex absolute left-4 md:left-6 top-[51%] xl:top-1/2 -translate-y-1/2 h-9 w-9 xl:h-12 xl:w-12 items-center justify-center rounded-full border border-white/25 bg-navy-950/20 text-white backdrop-blur-sm hover:border-amber-500/70 hover:text-amber-500 transition-colors'
       >
         <ArrowIcon flipped />
       </button>
@@ -184,7 +191,7 @@ export default function Hero() {
         type='button'
         onClick={next}
         aria-label='Next slide'
-        className='hidden md:flex absolute right-4 md:right-6 top-1/2 -translate-y-1/2 h-12 w-12 items-center justify-center rounded-full border border-white/25 bg-navy-950/20 text-white backdrop-blur-sm hover:border-amber-500/70 hover:text-amber-500 transition-colors'
+        className='hidden md:flex absolute right-4 md:right-6 top-[51%] xl:top-1/2 -translate-y-1/2 h-9 w-9 xl:h-12 xl:w-12 items-center justify-center rounded-full border border-white/25 bg-navy-950/20 text-white backdrop-blur-sm hover:border-amber-500/70 hover:text-amber-500 transition-colors'
       >
         <ArrowIcon />
       </button>
@@ -193,7 +200,11 @@ export default function Hero() {
           view, so it stays reachable even if the text content pushes the
           section taller than the screen on shorter laptop displays. */}
       <div className='sticky bottom-2 z-1 shrink-0 flex flex-col items-center gap-3 pb-2'>
-        <div role='tablist' aria-label='Hero slides' className='flex items-center gap-3'>
+        <div
+          role='tablist'
+          aria-label='Hero slides'
+          className='flex items-center gap-3'
+        >
           {PRODUCT_LINES.map((slide, i) => (
             <button
               key={slide.name}
@@ -217,8 +228,14 @@ export default function Hero() {
           aria-label='Scroll down'
           className='flex flex-col items-center gap-2 text-white/60 hover:text-amber-500 transition-colors'
         >
-          <span className='font-display text-[10px] tracking-widest'>SCROLL</span>
-          <svg viewBox='0 0 24 24' fill='none' className='w-4 h-4 animate-bounce'>
+          <span className='font-display text-[10px] tracking-widest'>
+            SCROLL
+          </span>
+          <svg
+            viewBox='0 0 24 24'
+            fill='none'
+            className='w-4 h-4 animate-bounce'
+          >
             <path
               d='M12 4v14M6 13l6 7 6-7'
               stroke='currentColor'
