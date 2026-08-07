@@ -30,6 +30,7 @@ const BRANCHES = [
   },
   {
     region: 'UAE Agent — Fortune Controls & Automation',
+    regionStacked: ['UAE Agent', '— Fortune Controls & Automation'],
     phone: '+971 (0)-50-55-98170',
     email: 'baligauae@baliga.com',
   },
@@ -101,11 +102,26 @@ export default function ContactPage() {
               {BRANCHES.map(b => (
                 <div
                   key={b.region}
-                  className='nameplate flex-col items-start py-4 text-navy-900'
+                  className={`nameplate flex-col py-4 text-navy-900 ${
+                    b.regionStacked
+                      ? 'items-center text-center xl:items-start xl:text-left'
+                      : 'items-start'
+                  }`}
                 >
-                  <span className='text-sm font-medium tracking-wide normal-case'>
-                    {b.region}
-                  </span>
+                  {b.regionStacked ? (
+                    <span className='text-sm font-medium tracking-wide normal-case'>
+                      <span className='xl:hidden'>
+                        {b.regionStacked[0]}
+                        <br />
+                        {b.regionStacked[1]}
+                      </span>
+                      <span className='hidden xl:inline'>{b.region}</span>
+                    </span>
+                  ) : (
+                    <span className='text-sm font-medium tracking-wide normal-case'>
+                      {b.region}
+                    </span>
+                  )}
                   {b.phone && (
                     <span className='mt-1 text-xs text-steel normal-case tracking-normal'>
                       {b.phone}
