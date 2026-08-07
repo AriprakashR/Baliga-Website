@@ -22,7 +22,7 @@ export default function CareersPage() {
             expertise and an uncompromising commitment to workplace safety.
           </p>
 
-          <div className='mt-10 inline-flex flex-col sm:flex-row items-center gap-4 rounded-sm border border-white/15 bg-white/5 px-6 py-5 text-left'>
+          <div className='mt-10 inline-flex flex-col sm:flex-row items-center gap-4 rounded-sm border border-white/15 bg-white/5 px-6 py-5 text-center sm:text-left'>
             <ShieldCheck
               className='h-8 w-8 shrink-0 text-amber-500'
               strokeWidth={1.5}
