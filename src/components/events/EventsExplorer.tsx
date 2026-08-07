@@ -52,13 +52,13 @@ export default function EventsExplorer() {
     <>
       <section className='border-b border-line bg-white sticky top-20 z-30'>
         <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-5 flex flex-col gap-5'>
-          <div className='flex flex-wrap gap-3'>
+          <div className='grid grid-cols-2 gap-3 sm:flex sm:flex-wrap'>
             {TABS.map(t => (
               <button
                 key={t.key}
                 type='button'
                 onClick={() => setTab(t.key)}
-                className={`font-display text-sm tracking-wide px-5 py-2.5 rounded-sm border transition-colors cursor-pointer ${
+                className={`w-full sm:w-auto text-center font-display text-sm tracking-wide px-5 py-2.5 rounded-sm border transition-colors cursor-pointer ${
                   tab === t.key
                     ? 'bg-navy-900 border-navy-900 text-white'
                     : 'border-line text-steel hover:border-navy-900 hover:text-navy-900'
