@@ -13,7 +13,7 @@ export default function IndustriesPage() {
             WHERE WE WORK
           </span>
           <h1 className='mt-4 text-3xl md:text-4xl font-bold'>
-            Industries &amp; Clients
+            Clients &amp; Industries
           </h1>
           <p className='mt-4 max-w-xl mx-auto font-body normal-case text-white/70'>
             Six decades of supplying hazardous-area equipment to refineries, EPC

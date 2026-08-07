@@ -1,10 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { withBasePath } from '@/lib/basePath';
 
 type Company = { name: string; logo: string };
 type ClientGroup = { industry: string; companies: Company[] };
+
+// Matches (with a small buffer over) the panel's CSS transition duration
+// below. A one-shot scrollIntoView computes its target once, but when
+// another panel is collapsing at the same time the page is still
+// shrinking underneath it — so instead we recompute the centered position
+// from the live layout every frame for this whole window, tracking the
+// target as it moves rather than committing to a stale one.
+const CENTER_CHASE_MS = 320;
 
 export default function ClientsAccordion({
   groups,
@@ -12,6 +20,35 @@ export default function ClientsAccordion({
   groups: ClientGroup[];
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  useEffect(() => {
+    if (openIndex === null) return;
+
+    const start = performance.now();
+    let frameId: number;
+
+    const step = (now: number) => {
+      const el = buttonRefs.current[openIndex];
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        const targetY =
+          window.scrollY + rect.top - (window.innerHeight - rect.height) / 2;
+        window.scrollTo({ top: Math.max(targetY, 0), behavior: 'auto' });
+      }
+
+      if (now - start < CENTER_CHASE_MS) {
+        frameId = requestAnimationFrame(step);
+      }
+    };
+
+    frameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frameId);
+  }, [openIndex]);
+
+  function handleToggle(index: number) {
+    setOpenIndex(prev => (prev === index ? null : index));
+  }
 
   return (
     <div className='border border-line rounded-sm bg-white divide-y divide-line'>
@@ -23,7 +60,10 @@ export default function ClientsAccordion({
           <div key={group.industry}>
             <button
               type='button'
-              onClick={() => setOpenIndex(isOpen ? null : index)}
+              ref={el => {
+                buttonRefs.current[index] = el;
+              }}
+              onClick={() => handleToggle(index)}
               aria-expanded={isOpen}
               aria-controls={panelId}
               className='w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-mist transition-colors cursor-pointer'
