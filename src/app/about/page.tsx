@@ -502,6 +502,10 @@ export default function AboutPage() {
                         <img
                           src={cert.image}
                           alt={`${cert.name} certificate`}
+                          width={64}
+                          height={64}
+                          loading='lazy'
+                          decoding='async'
                           className='h-16 w-16 shrink-0 rounded-sm border border-line bg-white object-contain p-1'
                         />
                         <span className='flex items-center gap-2 font-display text-sm font-semibold text-navy-900 group-hover:text-amber-600'>

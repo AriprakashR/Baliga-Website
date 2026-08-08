@@ -112,7 +112,8 @@ export default function Hero() {
             src={withBasePath(slide.heroImage)}
             alt={`${slide.name} product lineup`}
             fill
-            priority={i === 0}
+            preload={i === 0}
+            loading={i === 0 ? undefined : 'lazy'}
             sizes='100vw'
             className={`object-cover object-right transition-opacity duration-1000 ease-in-out ${
               i === activeIndex ? 'opacity-100' : 'opacity-0'

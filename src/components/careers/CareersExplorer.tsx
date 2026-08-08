@@ -1,11 +1,15 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { Search, SearchX } from 'lucide-react';
 import { JOB_DEPARTMENTS, JOBS, type JobOpening } from '@/data/careers';
 import JobCard from './JobCard';
-import JobDetailModal from './JobDetailModal';
-import ApplyModal from './ApplyModal';
+
+const JobDetailModal = dynamic(() => import('./JobDetailModal'), {
+  ssr: false,
+});
+const ApplyModal = dynamic(() => import('./ApplyModal'), { ssr: false });
 
 export default function CareersExplorer() {
   const [department, setDepartment] = useState<string>('all');

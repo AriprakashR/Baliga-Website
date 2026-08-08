@@ -56,7 +56,7 @@ export default function ProductDetailView({
               fill
               sizes='(min-width: 1024px) 50vw, 100vw'
               className='object-cover'
-              priority
+              preload
             />
           </div>
           {gallery.length > 1 && (

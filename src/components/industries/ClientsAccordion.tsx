@@ -115,6 +115,7 @@ export default function ClientsAccordion({
                         src={withBasePath(company.logo)}
                         alt={company.name}
                         loading='lazy'
+                        decoding='async'
                         className='h-20 w-full object-contain'
                         onError={e => {
                           e.currentTarget.style.display = 'none';

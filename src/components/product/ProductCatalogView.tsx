@@ -2,12 +2,14 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import dynamic from 'next/dynamic';
 import { PackageSearch } from 'lucide-react';
 import { PRODUCTS } from '@/data/products';
 import ProductFilterBar from './ProductFilterBar';
 import ProductCard from './ProductCard';
 import ProductDetailView from './ProductDetailView';
-import QuoteModal from './QuoteModal';
+
+const QuoteModal = dynamic(() => import('./QuoteModal'), { ssr: false });
 
 function toggleInSet(set: Set<string>, value: string): Set<string> {
   const next = new Set(set);

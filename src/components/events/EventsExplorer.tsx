@@ -1,10 +1,12 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { CalendarX2, Search } from 'lucide-react';
 import { EVENTS, type EventItem, type EventStatus } from '@/data/events';
 import EventCard from './EventCard';
-import EventModal from './EventModal';
+
+const EventModal = dynamic(() => import('./EventModal'), { ssr: false });
 
 const TABS: { key: EventStatus; label: string }[] = [
   { key: 'upcoming', label: 'Upcoming Events' },
