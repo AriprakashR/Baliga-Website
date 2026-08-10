@@ -13,7 +13,7 @@ export default function ProductCard({
   index: number;
   onSelect: (id: string) => void;
 }) {
-  const badges = [...product.exZone.slice(0, 1), ...product.certifications.slice(0, 2)];
+  const badges = [...product.exZone.slice(0, 1), ...product.certifications.slice(0, 1)];
 
   return (
     <button
@@ -30,19 +30,21 @@ export default function ProductCard({
           sizes='(min-width: 1280px) 320px, (min-width: 1024px) 300px, (min-width: 768px) 45vw, 90vw'
           className='object-cover transition-transform duration-500 group-hover:scale-105'
         />
-        <div className='absolute left-3 top-3 flex flex-wrap gap-1.5'>
-          {badges.map(badge => (
-            <span
-              key={badge}
-              className='nameplate nameplate--dark text-amber-500 text-[11px] px-2.5 py-1'
-            >
-              {badge}
-            </span>
-          ))}
-        </div>
       </div>
 
       <div className='flex flex-1 flex-col p-5'>
+        {badges.length > 0 && (
+          <div className='flex flex-wrap gap-1.5 mb-3'>
+            {badges.map(badge => (
+              <span
+                key={badge}
+                className='nameplate text-navy-900 text-[11px] px-2.5 py-1 whitespace-nowrap'
+              >
+                {badge}
+              </span>
+            ))}
+          </div>
+        )}
         <h3 className='font-display text-base text-navy-900 normal-case leading-snug'>
           {product.name}
         </h3>
