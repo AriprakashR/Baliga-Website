@@ -11,8 +11,8 @@ export default function HomePage() {
     <>
       <Hero />
       <CertificationsBar />
-      <ProductCarousel />
       <AboutLegacy />
+      <ProductCarousel />
       <IndustriesServed />
       <WhyChooseUs />
       <CTABanner />

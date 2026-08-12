@@ -28,13 +28,14 @@
   --color-line: #e2e6ed; /* hairline borders on light bg */
 
   /* ---- Type -------------------------------------------------------------
-     Display: Sora — a clean geometric sans for headlines, normal case.
-     Body: Inter — the modern-standard humanist sans for long-form copy.
-     Mono: for certification codes, ratings, and stat figures (nameplate feel).
+     Display & Body: Times New Roman — serif throughout headlines and
+     long-form copy.
+     Mono: Courier New — a monospace serif, kept for certification codes,
+     ratings, and stat figures (nameplate feel), matching the Times family.
   */
-  --font-display: 'Sora', ui-sans-serif, system-ui, sans-serif;
-  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-display: 'Times New Roman', Times, serif;
+  --font-body: 'Times New Roman', Times, serif;
+  --font-mono: 'Courier New', Courier, monospace;
 
   /* ---- Radii — small and precise, not soft/bubbly ---------------------- */
   --radius-sm: 2px;
