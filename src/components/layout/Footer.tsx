@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import { withBasePath } from '@/lib/basePath';
 import IndustryLinksMenu from './IndustryLinksMenu';
 
 const COLUMNS = [
@@ -39,12 +41,16 @@ const COLUMNS = [
 
 export default function Footer() {
   return (
-    <footer className='bg-navy-900 border-t border-white/10'>
+    <footer className='bg-gradient-to-b from-azure-700/40 via-navy-800 to-navy-950 border-t border-azure-500/30'>
       <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10'>
         <div>
-          <span className='font-display text-2xl font-bold text-white tracking-wide'>
-            BALIGA
-          </span>
+          <Image
+            src={withBasePath('/logo.png')}
+            alt='Baliga'
+            width={200}
+            height={103}
+            className='h-12 w-auto'
+          />
           <p className='mt-4 font-body normal-case text-sm text-white/60 leading-relaxed max-w-xs'>
             Explosion-proof and flameproof electrical equipment for hazardous
             industrial environments, engineered in India since 1960.

@@ -21,6 +21,13 @@
   --color-amber-500: #f2a81d; /* primary accent — CTAs, cert marks */
   --color-amber-100: #fdecc8; /* soft tint for badges on light bg */
 
+  /* ---- Color: Azure (brand blue, sampled from the Baliga logo) --------
+     Used sparingly as a gradient highlight on navy chrome (header/footer/
+     body backdrop) — a nod to the brand's original glossy navy-to-blue
+     site background. */
+  --color-azure-600: #0e6fa3;
+  --color-azure-500: #1c8ec7;
+
   /* ---- Color: Neutrals --------------------------------------------------*/
   --color-ink: #101828; /* body text on light backgrounds */
   --color-steel: #5b6b82; /* secondary / muted text */
@@ -54,7 +61,12 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--color-ink);
-  background: #ffffff;
+  background: linear-gradient(
+    180deg,
+    var(--color-navy-950) 0%,
+    var(--color-navy-800) 45%,
+    var(--color-azure-600) 100%
+  );
 }
 
 h1,

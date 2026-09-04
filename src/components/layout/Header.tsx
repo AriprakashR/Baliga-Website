@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { withBasePath } from '@/lib/basePath';
 
 const NAV_LINKS = [
   { label: 'Products', href: '/products' },
@@ -23,7 +25,7 @@ export default function Header() {
   }
 
   return (
-    <header className='fixed top-0 inset-x-0 z-50 bg-navy-900/95 backdrop-blur border-b border-white/10'>
+    <header className='fixed top-0 inset-x-0 z-50 bg-gradient-to-b from-navy-900/95 via-navy-700/95 to-navy-600/95 backdrop-blur border-b border-azure-500/30'>
       <div className='max-w-(--container-page) mx-auto px-6 md:px-10 lg:px-6 xl:px-10 h-20 flex items-center justify-between'>
         <Link
           href='/'
@@ -33,10 +35,15 @@ export default function Header() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
-          <span className='font-display text-2xl font-bold text-white tracking-wide'>
-            BALIGA
-          </span>
-          <span className='inline-block font-mono text-[11px] text-amber-500 border border-amber-500/40 rounded-sm px-2 py-0.5 tracking-widest'>
+          <Image
+            src={withBasePath('/logo.png')}
+            alt='Baliga'
+            width={200}
+            height={103}
+            priority
+            className='h-11 w-auto'
+          />
+          <span className='hidden sm:inline-block font-mono text-[11px] text-amber-500 border border-amber-500/40 rounded-sm px-2 py-0.5 tracking-widest'>
             EST. 1960
           </span>
         </Link>
@@ -97,7 +104,7 @@ export default function Header() {
           [1fr] auto-height trick doesn't reliably size to content. */}
       <div
         aria-hidden={!open}
-        className={`lg:hidden overflow-hidden bg-navy-900 transition-[max-height] duration-300 ease-in-out ${
+        className={`lg:hidden overflow-hidden bg-gradient-to-b from-navy-900 to-navy-800 transition-[max-height] duration-300 ease-in-out ${
           open ? 'max-h-[32rem]' : 'max-h-0'
         }`}
       >
