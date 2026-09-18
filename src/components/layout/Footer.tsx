@@ -1,0 +1,117 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import { withBasePath } from '@/lib/basePath';
+import IndustryLinksMenu from './IndustryLinksMenu';
+
+const COLUMNS = [
+  {
+    heading: 'Products',
+    links: [
+      { label: 'Lighting', href: '/products' },
+      {
+        label: 'Communication Systems',
+        href: '/products?category=communication',
+      },
+      { label: 'Panels', href: '/products?category=control-stations' },
+      {
+        label: 'Flow Measuring',
+        href: '/products?category=flow-measurement',
+      },
+    ],
+  },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'About Us', href: '/about' },
+      { label: 'Industries & Clients', href: '/industries' },
+      { label: 'Careers', href: '/careers' },
+    ],
+  },
+  {
+    heading: 'Resources',
+    links: [
+      { label: 'Events & Exhibitions', href: '/events' },
+      { label: 'Technical Info', href: '/technical-info' },
+      { label: 'FAQ', href: '/faq' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Feedback', href: '/feedback' },
+    ],
+  },
+];
+
+export default function Footer() {
+  return (
+    <footer className='bg-gradient-to-b from-azure-700/40 via-navy-800 to-navy-950 border-t border-azure-500/30'>
+      <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10'>
+        <div>
+          <Image
+            src={withBasePath('/logo.png')}
+            alt='Baliga'
+            width={200}
+            height={103}
+            className='h-12 w-auto'
+          />
+          <p className='mt-4 font-body normal-case text-sm text-white/60 leading-relaxed max-w-xs'>
+            Explosion-proof and flameproof electrical equipment for hazardous
+            industrial environments, engineered in India since 1960.
+          </p>
+          <p className='mt-4 font-body normal-case text-sm text-white/60 leading-relaxed max-w-xs'>
+            1/382, Baliga Road, Off Medavakkam Main Road, Kovilambakkam,
+            Chennai-600129, India
+          </p>
+          <p className='mt-2 font-body normal-case text-sm text-white/60 leading-relaxed'>
+            +91-44-2238-0990 · baligamf@baliga.com
+          </p>
+          <div className='mt-6 flex flex-wrap gap-3'>
+            <span className='nameplate nameplate--dark text-amber-500 text-xs'>
+              ATEX
+            </span>
+            <span className='nameplate nameplate--dark text-amber-500 text-xs'>
+              IECEx
+            </span>
+            <span className='nameplate nameplate--dark text-amber-500 text-xs'>
+              ISO 9001:2015
+            </span>
+          </div>
+        </div>
+
+        {COLUMNS.map(col => (
+          <div key={col.heading}>
+            <h3 className='font-display text-xs tracking-widest text-white/50'>
+              {col.heading.toUpperCase()}
+            </h3>
+            <ul className='mt-4 space-y-3'>
+              {col.links.map(link => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className='font-body normal-case text-sm text-white/70 hover:text-white transition-colors'
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <IndustryLinksMenu />
+
+      <div className='border-t border-white/10'>
+        <div className='max-w-(--container-page) mx-auto px-6 md:px-10 py-6 flex flex-col sm:flex-row justify-between gap-3 font-body normal-case text-xs text-white/40'>
+          <span>
+            © {new Date().getFullYear()} Baliga Lighting Equipments Private
+            Limited. All rights reserved.
+          </span>
+          <div className='flex items-center gap-4'>
+            <Link href='/terms' className='hover:text-white/70 transition-colors'>
+              Terms of Use
+            </Link>
+            <span>Manufactured in India · Certified for global deployment</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

@@ -1,0 +1,2 @@
+id,slug,name,category,description,shortSpecs,exZone,ipRating,certifications,images,datasheetUrl,Spec: Protection Type,Spec: Rated Voltage,Spec: Temperature Class
+lum-01,flameproof-led-well-glass-luminaire,Flameproof LED Well Glass Luminaire,luminaires,Flameproof LED well glass luminaire for general area lighting in hazardous locations.,40W LED;Zone 1 / Zone 2;IP66,Zone 1;Zone 2,IP66,ATEX;IECEx;CCOE/PESO,luminaires.png,flameproof-led-well-glass-luminaire.pdf,Ex d IIC T6 Gb,110-270V AC 50/60Hz,T6

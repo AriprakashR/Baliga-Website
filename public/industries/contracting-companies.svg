@@ -1,0 +1,23 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0' stop-color='#122a52' />
+      <stop offset='1' stop-color='#071429' />
+    </linearGradient>
+    <pattern id='grid' width='24' height='24' patternUnits='userSpaceOnUse'>
+      <path d='M24 0H0V24' fill='none' stroke='#f2a81d' stroke-opacity='0.06' />
+    </pattern>
+  </defs>
+  <rect width='400' height='300' fill='url(#bg)' />
+  <rect width='400' height='300' fill='url(#grid)' />
+  <g stroke='#f2a81d' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'>
+    <rect x='140' y='130' width='90' height='100' rx='2' />
+    <path d='M158 130v100M176 130v100M194 130v100M212 130v100' opacity='0.5' />
+    <path d='M158 148h18M158 166h18M158 184h18M194 148h18M194 166h18M194 184h18' opacity='0.5' />
+    <path d='M150 90V60h140' />
+    <path d='M290 60v20' />
+    <path d='M150 90l60 24' />
+    <path d='M150 70l-14 20' />
+    <path d='M110 230h220' />
+  </g>
+</svg>

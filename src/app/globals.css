@@ -1,26 +1,254 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ==========================================================================
+   BALIGA LIGHTING — GLOBAL DESIGN SYSTEM
+   This file is the ONLY place design tokens are defined. Components should
+   never hardcode hex values — they consume the tokens below via Tailwind
+   utilities (bg-navy-900, text-amber-500, font-display, etc.) generated
+   from this @theme block.
+   ========================================================================== */
+
+  /* ---- Color: Navy (primary brand) ------------------------------------ */
+  --color-navy-950: #071429;
+  --color-navy-900: #0a1b3d; /* header, hero, footer base */
+  --color-navy-800: #122a52; /* section alternation */
+  --color-navy-700: #1b3a6b; /* borders / dividers on navy */
+  --color-navy-600: #2a4e88; /* hover states on navy */
+
+  /* ---- Color: Amber (safety accent, used sparingly) -------------------- */
+  --color-amber-600: #d6900f; /* hover / pressed */
+  --color-amber-500: #f2a81d; /* primary accent — CTAs, cert marks */
+  --color-amber-100: #fdecc8; /* soft tint for badges on light bg */
+
+  /* ---- Color: Azure (brand blue, sampled from the Baliga logo) --------
+     Used sparingly as a gradient highlight on navy chrome (header/footer/
+     body backdrop) — a nod to the brand's original glossy navy-to-blue
+     site background. */
+  --color-azure-600: #0e6fa3;
+  --color-azure-500: #1c8ec7;
+
+  /* ---- Color: Neutrals --------------------------------------------------*/
+  --color-ink: #101828; /* body text on light backgrounds */
+  --color-steel: #5b6b82; /* secondary / muted text */
+  --color-mist: #f5f7fa; /* light section background */
+  --color-line: #e2e6ed; /* hairline borders on light bg */
+
+  /* ---- Type -------------------------------------------------------------
+     Display & Body: Times New Roman — serif throughout headlines and
+     long-form copy.
+     Mono: Courier New — a monospace serif, kept for certification codes,
+     ratings, and stat figures (nameplate feel), matching the Times family.
+  */
+  --font-display: 'Times New Roman', Times, serif;
+  --font-body: 'Times New Roman', Times, serif;
+  --font-mono: 'Courier New', Courier, monospace;
+
+  /* ---- Radii — small and precise, not soft/bubbly ---------------------- */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* ---- Layout ------------------------------------------------------------ */
+  --container-page: 1280px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ---- Base element defaults -------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: linear-gradient(
+    180deg,
+    var(--color-navy-950) 0%,
+    var(--color-navy-800) 45%,
+    var(--color-azure-600) 100%
+  );
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Respect reduced-motion preference site-wide */
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ==========================================================================
+   SIGNATURE ELEMENT — "Nameplate"
+   Every flameproof enclosure Baliga ships carries a stamped rating plate
+   (Ex d IIC T6 Gb, cert numbers, IP ratings). This component reuses that
+   visual language — a bordered mono-font tag with corner rivets — for
+   certification badges, stat callouts, and category tags across the site.
+   ========================================================================== */
+.nameplate {
+  @apply inline-flex items-center gap-2 border border-navy-700/20 bg-white px-4 py-2 relative;
+  font-family: var(--font-mono);
+  border-radius: var(--radius-sm);
+}
+
+.nameplate::before,
+.nameplate::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.35;
+  transform: translateY(-50%);
+}
+
+.nameplate::before {
+  left: 6px;
+}
+
+.nameplate::after {
+  right: 6px;
+}
+
+.nameplate--dark {
+  @apply bg-navy-800 border-white/15 text-white;
+}
+
+/* ==========================================================================
+   MARQUEE — continuous auto-scroll
+   Used by the homepage product carousel: the track renders two identical
+   copies of the card list back to back, then animates from 0 to -50%
+   (exactly one copy's width) on an infinite linear loop. Since both halves
+   are identical, the restart frame is pixel-identical to the frame before
+   it — no visible jump. Paused on hover/focus (see the component) so
+   visitors can stop it to read or click a card.
+   ========================================================================== */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 34s linear infinite;
+}
+
+/* Per-card entrance used by the Events grid — replayed on tab/filter change
+   by keying the grid container so React remounts the cards. Delay is set
+   per-card via inline style for the stagger. */
+@keyframes stagger-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-stagger-fade-in {
+  animation: stagger-fade-in 0.45s ease-out both;
+}
+
+/* Event detail modal entrance/backdrop. */
+@keyframes modal-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modal-pop-in {
+  animation: modal-pop-in 0.25s ease-out both;
+}
+
+@keyframes overlay-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-overlay-fade-in {
+  animation: overlay-fade-in 0.2s ease-out both;
+}
+
+/* Catalog grid <-> product detail view crossfade (ProductCatalogView). */
+@keyframes view-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-view-fade-in {
+  animation: view-fade-in 0.3s ease-out both;
+}
+
+/* ==========================================================================
+   THEMED SCROLLBAR — reusable utility
+   Apply `.themed-scrollbar` to any scrollable container (modal bodies,
+   accordion panels, long lists) for a slim navy/amber scrollbar that matches
+   the design system instead of the OS default. Covers Firefox
+   (scrollbar-width/-color) and Chromium/WebKit (::-webkit-scrollbar).
+   ========================================================================== */
+.themed-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-navy-600) var(--color-mist);
+}
+
+.themed-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.themed-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-mist);
+}
+
+.themed-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-navy-600);
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-mist);
+}
+
+.themed-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-amber-600);
+}
+
+.themed-scrollbar::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.themed-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
 }
